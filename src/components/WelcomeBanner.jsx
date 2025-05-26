@@ -14,11 +14,11 @@
 
 import "./WelcomeBanner.css";
 
-function WelcomeBanner() {
+function WelcomeBanner({ appSectionClass }) {
   return (
-    <header className="welcome-banner" aria-labelledby="welcome-title">
+    <header className={ appSectionClass } aria-labelledby="welcome-title">
       <h1 id="welcome-title">Trippy.Shroom Store</h1>
-      <p>Your source for premium spores and grow bags.</p>
+      <p id="p">Your source for premium spores and grow bags.</p>
     </header>
   );
 }

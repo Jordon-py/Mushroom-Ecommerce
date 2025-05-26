@@ -10,7 +10,17 @@
     <title>Trippy</title>
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+    <!-- HTML -->
+    <div id="tracker" style="width:300px; height:200px; border:1px solid #444; position:relative;">
+      <div id="follower" style="
+        width:20px; height:20px; border-radius:50%; background:#09f;
+        position:absolute; pointer-events:none; left:0; top:0; transform:translate(-50%, -50%);
+        transition: left 0.03s linear, top 0.03s linear;">
+      </div>
+      <div id="root"></div>
+      <script type="module" src="/src/main.jsx"></script>
+    </div>
+
+
   </body>
 </html>

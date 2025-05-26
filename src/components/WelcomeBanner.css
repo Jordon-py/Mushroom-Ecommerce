@@ -7,45 +7,32 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: 8rem;
+  font-size: 4rem;
   color: lch(100% 0.01 296.81);
   text-shadow: 0 10px 16px lch(0% 0 0 / 0.443);
 }
-.welcome-banner-light {
+.App.light-mode {
   display: flex;
-  
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: 8rem;
+  font-family: Audiowide, 'Segoe UI', Arial, sans-serif;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items:flex-end;
+  gap: 3rem;
+  font-size: 2.3rem;
   color: lch(0% 0 0);
   text-shadow: 0 10px 16px lch(0% 0 0 / 0.443);
 
 }
 h1#welcome-title {
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-rendering: optimizeLegibility;
   font-family: Audiowide, 'Segoe UI', Arial, sans-serif;
-  margin: 1rem;
-  max-width: 1080px;
+  margin-top: 0;
   font-size: 6rem;
   color: lch(0% 0 0);
-  text-shadow: 0 8px 12px lch(0% 0 0 / 0.329);
+  text-shadow: 0 8px 12px lch(1.29% 4.84 19.4 / 0.63);
 }
 
-/* Welcome Banner Title (Homepage) */
-.welcome-banner-dark #welcome-title {
-  margin: 2rem auto 2rem auto;
-  max-width: 1080px;
-  font-size: 8rem;
-  color: lch(94.1% 0.01 296.81);
-  text-shadow: 0 8px 12px lch(0% 0 0 / 0.329);
-}
-
-.welcome-banner-light#tag {
-  color: lch(0% 0 0);
-  font-size: 2.2rem;
-}
-.welcome-banner-dark#tag {
-  color: lch(94.33% 7.57 19.84);
-  font-size: 2.2rem;
-}

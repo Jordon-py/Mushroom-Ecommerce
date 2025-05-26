@@ -9,7 +9,15 @@ html {
   padding: 0;
 }
 *, *::before, *::after {
-  box-sizing: inherit;
+  box-sizing: border-box;
+}
+body {
+  max-height: 100vh;
+  max-width: 100vw;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  font-family: 'Audiowide', 'Segoe UI', Arial, sans-serif;
 }
 
 div {
@@ -17,30 +25,30 @@ div {
 }
 root {
   display: flex;
+  height: 100%;
   max-width: 100vw;
   max-height: 100vh;
   overflow: hidden;
-  margin-top: 0;
-  padding: 0;
   color-scheme: light dark;
   font-synthesis: style;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+a {
+  color: lch(0% 0 0);
+  
+  transition: color 0.2s ease-in-out;
+}
 
 @media (prefers-color-scheme: light-mode) {
-  :root {
-    color: lch(30% 20 250);
-    background-color: lch(98% 0 0);
-  }
+  
   a:hover {
     color: lch(70% 60 270);
   }
   button {
     background-color: lch(98% 0 0);
-    color: lch(20% 0 0);
+    color: lch(0% 0 0);
   }
 }
 

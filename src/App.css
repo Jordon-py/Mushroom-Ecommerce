@@ -43,14 +43,16 @@
 .App {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  max-height: 100vh;
 }
 
 .main-content {
   flex: 1 0 auto;
-  padding: 2.4em 2.2em;
+  padding-left: 15%;
   width: 100%;
   box-sizing: border-box;
-  animation: fade-in-up 0.8s;
+  animation: fade-in-up 1.8s;
+  transform: translateY(-20);
+  margin-bottom:1px;
 }
 

@@ -66,7 +66,7 @@ export default function App() {
         {/* Sidebar navigation stays visible for quick access */}
         <SideBar />
         <main className="main-content">
-          <WelcomeBanner backgroundImg={backgroundImg} lightMode={lightMode} />
+          <WelcomeBanner backgroundImg={backgroundImg} appSectionClass={appSectionClass} />
           {/* Theme toggle button: always visible and accessible */}
           <button
             className={buttonClass}
