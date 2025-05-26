@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+
+/* Welcome Banner Container (Homepage) */
+.welcome-banner-dark {
+  display: flex;
+  font-family: Audiowide, 'Segoe UI', Arial, sans-serif;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 8rem;
+  color: lch(100% 0.01 296.81);
+  text-shadow: 0 10px 16px lch(0% 0 0 / 0.443);
+}
+.welcome-banner-light {
+  display: flex;
+  
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 8rem;
+  color: lch(0% 0 0);
+  text-shadow: 0 10px 16px lch(0% 0 0 / 0.443);
+
+}
+h1#welcome-title {
+  display: flex;
+  font-family: Audiowide, 'Segoe UI', Arial, sans-serif;
+  margin: 1rem;
+  max-width: 1080px;
+  font-size: 6rem;
+  color: lch(0% 0 0);
+  text-shadow: 0 8px 12px lch(0% 0 0 / 0.329);
+}
+
+/* Welcome Banner Title (Homepage) */
+.welcome-banner-dark #welcome-title {
+  margin: 2rem auto 2rem auto;
+  max-width: 1080px;
+  font-size: 8rem;
+  color: lch(94.1% 0.01 296.81);
+  text-shadow: 0 8px 12px lch(0% 0 0 / 0.329);
+}
+
+.welcome-banner-light#tag {
+  color: lch(0% 0 0);
+  font-size: 2.2rem;
+}
+.welcome-banner-dark#tag {
+  color: lch(94.33% 7.57 19.84);
+  font-size: 2.2rem;
+}

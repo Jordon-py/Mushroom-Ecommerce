@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+
+/* THEME TOGGLE BUTTON */
+.button-dark-mode, .button-light-mode {
+  position: fixed;
+  top: 1rem;
+  right: 1.5rem;
+  z-index: 120;
+  border-radius: 9px;
+  font-size: 1.2rem;
+  font-family: 'Audiowide', 'Segoe UI', Arial, sans-serif;
+  cursor: pointer;
+  border: 2px solid transparent;
+  outline: none;
+  transition: background 0.4s, color 0.4s, border-color 0.4s, box-shadow 0.4s;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  background: lch(97.93% 0.01 296.81 / 0);
+  color: lch(0% 0 0);
+}
+
+.button-dark-mode {
+  background: lch(0% 0 0);
+  color: lch(92.85% 0.71 18.58);
+  border-color: lch(70.2% 46.32 276.23);
+  animation: shroom-trippy 14s infinite linear alternate;
+}
+
+.button-light-mode {
+  background: lch(100% 0.01 296.81 / 0.233);
+  color: lch(0% 0 0);
+  border-color: lch(53.2% 78.25 290.37);
+  animation: shroom-trippy 14s infinite linear alternate;
+}
+
+.button.button-dark-mode, .button.button-light-mode {
+  border-color: lch(82.96% 29.68 51.5 / 0.897);
+  box-shadow: 0 6px 3px 4px lch(39.82% 125.96 310.95 / 0.068);
+}
+
+/* .App → Main App Container (All Pages) */
+/* .main-content → Main Content Area (All Pages) */
+
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1 0 auto;
+  padding: 2.4em 2.2em;
+  width: 100%;
+  box-sizing: border-box;
+  animation: fade-in-up 0.8s;
+}
+

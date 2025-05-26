@@ -1,0 +1,7 @@
+.morph-wrap.fade .morph-content {
+  transition: opacity 0.4s ease;
+  opacity: 1;
+}
+.morph-wrap.fade .morph-content-exit {
+  opacity: 0;
+}

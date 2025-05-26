@@ -1,0 +1,69 @@
+/* .footer → Footer Section (All Pages) */
+/* .footer-content → Footer Content Wrapper (All Pages) */
+/* .footer-nav → Footer Navigation (All Pages) */
+/* .footer-contact → Footer Contact Info (All Pages) */
+
+.footer {
+  margin-top: auto;
+  width: 100%;
+  background: lch(0% 0 0 / 0.123);
+  padding: 1.2rem 0 0.8rem 0;
+  box-shadow: 0 -2px 12px lch(0% 0 0 / 0.08);
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1260px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.footer-nav ul {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  position: static;
+}
+
+.footer-nav a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: lch(30% 40 250);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.footer-nav a:hover,
+.footer-nav a:focus {
+  color: lch(50% 60 270);
+  text-decoration: underline;
+}
+
+.footer-contact {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+@media (max-width: 700px) {
+  .footer-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding: 1rem;
+  }
+  .footer-contact {
+    text-align: left;
+  }
+}
