@@ -18,8 +18,6 @@ import { Routes, Route } from "react-router-dom";
 
 // Importing custom components and assets
 import WelcomeBanner from "./components/WelcomeBanner";
-import Shrooms_3 from "./assets/Shrooms_3.png";
-import Shrooms_0 from "./assets/Shrooms_0.png";
 import SideBar from "./components/SideBar";
 import Footer from "./components/Footer";
 import "./App.css"; // App-wide styles
@@ -52,7 +50,8 @@ export default function App() {
   const buttonClass = lightMode ? "button-light-mode" : "button-dark-mode";
   const appSectionClass = lightMode ? "App light-mode" : "App dark-mode";
   const buttonText = lightMode ? "Switch to Dark Mode" : "Switch to Light Mode";
-  const backgroundImg = lightMode ? Shrooms_0 : Shrooms_3;
+  // Use public folder paths for images
+  const backgroundImg = lightMode ? "/Shrooms_0.png" : "/Shrooms_3.png";
   return (
     <>
       {/* Background artwork is visually placed behind the main content */}
