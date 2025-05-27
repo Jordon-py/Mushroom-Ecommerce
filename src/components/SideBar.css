@@ -8,18 +8,18 @@
 
 /* Sidebar base styles */
 .sidebar {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
-  height: 100vh;
+  height: 80vh;
   width: 250px;
-  max-width: 90vw;
-  background: lch(95% 5 250 / 0.95);
-  backdrop-filter: blur(8px);
-  padding: 1.5rem 1rem 1rem 1.25rem;
+  max-width: 80vw;
+  backdrop-filter: blur(2px);
+  padding: 1rem 1rem 1rem .2rem;
   z-index: 15;
   transition: transform 0.9s cubic-bezier(0.77, 0, 0.18, 1);
-  box-shadow: 2px 0 12px lch(0% 0 0 / 0.15);
+  box-shadow: 2px 4px 12px lch(52.3% 78.73 288.08 / 0.219);
+  text-rendering:optimizeLegibility;
 }
 
 /* Closed state - slide out to the left */
@@ -32,28 +32,29 @@
 .sidebar.open {
   transform: translateX(0);
   pointer-events: auto;
+  transition: all 1.4s ease-in-out;
 }
 
 /* Links container */
 ul.sidebar-links {
   font-family: Audiowide, 'Segoe UI', Arial, sans-serif;
-  font-size: 1.2rem;
+  font-size: 1.9rem;
   width: 100%;
   padding: 0;
   margin: 2rem 0 0 0;
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 4rem;
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease 0.3s, transform 0.6s ease 0.3s;
+  transform: translateY(-60%);
+  transition: opacity 0.9s ease 0.6s, transform 0.6s ease 0.6s;
 }
 
 /* Show links when sidebar is open */
 .sidebar.open .sidebar-links {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(25%);
 }
 
 /* Link styling */

@@ -32,29 +32,30 @@ button.button-light-mode {
   top: 1rem;
   left: 5.5rem;
   z-index: 120;
-  border-radius: 8px;
-  font-size: 1rem;
+  border-radius: 6px;
+  font-size: 1.1rem;
   font-family: 'Audiowide', 'Segoe UI', Arial, sans-serif;
   cursor: pointer;
   padding: 0.5rem 1rem;
   border: 2px solid transparent;
   outline: none;
-  transition: all 0.4s ease;
-  box-shadow: 0 4px 12px lch(0% 0 0 / 0.15);
+  transition: all 0.7s ease;
+  box-shadow: 0 4px 12px lch(42.92% 102.31 298.15 / 0.15);
+  text-rendering: optimizeLegibility;
 }
 
 .button-dark-mode {
-  background: lch(15% 20 285 / 0.9);
-  color: lch(90% 10 60);
+  background: lch(58.73% 65.35 279.51 / 0.432);
+  color: lch(94.03% 9.97 245.56);
   border-color: lch(45% 60 285);
-  animation: shroom-glow 8s infinite ease-in-out;
+  animation: shroom-glow 28s infinite ease-in-out;
 }
 
 .button-light-mode {
-  background: lch(85% 15 60 / 0.9);
-  color: lch(20% 30 285);
-  border-color: lch(55% 40 60);
-  animation: shroom-glow 8s infinite ease-in-out;
+  background: lch(55.81% 71.06 283.26 / 0.473);
+  color: lch(13.06% 29.45 287.38);
+  border-color: lch(58.3% 66.04 279.41 / 0.842);
+  animation: shroom-glow 25s infinite cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
 .button-dark-mode:hover {
@@ -72,24 +73,31 @@ button.button-light-mode {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background: lch(95% 2 250 / 0.5);
+  background: lch(94.93% 2.07 247.87 / 0.116);
 }
 
 .App.dark-mode {
-  background: lch(15% 5 285 / 0.8);
+  display: flex;
+  flex-direction: row;
+  background: lch(47.91% 89.25 293.23 / 0.123);
+  backdrop-filter: blur(6px);
+  max-width: 100vh;
+  width: 100%;
 }
 
 .main-content {
-  flex: 1 0 auto;
-  margin-left: 0;
+  display:flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
   padding: 2rem;
-  padding-left: 3rem;
   width: 100%;
   max-width: 100vw;
   box-sizing: border-box;
   animation: fade-in-up 1.2s ease-out;
   overflow-x: auto;
   transition: margin-left 0.9s cubic-bezier(0.77, 0, 0.18, 1);
+  max-height: 60vh;
+  height: 50%;
 }
 
 /* Content sections */

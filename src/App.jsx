@@ -65,8 +65,6 @@ export default function App() {
         {/* Use asset directly as src in JSX */}
         <img src={backgroundImg} alt="Background" className="background" aria-hidden="true" />
       </span>
-
-  
       {/* Theme toggle button: always visible and accessible */}
       <button
         className={buttonClass}
