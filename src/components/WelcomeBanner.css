@@ -1,38 +1,80 @@
 @import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
 
 /* Welcome Banner Container (Homepage) */
-.welcome-banner-dark {
+.welcome-banner {
   display: flex;
   font-family: Audiowide, 'Segoe UI', Arial, sans-serif;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: 4rem;
-  color: lch(100% 0.01 296.81);
-  text-shadow: 0 10px 16px lch(0% 0 0 / 0.443);
+  text-align: center;
+  padding: 3rem 2rem;
+  margin: 2rem 0;
+  background: lch(96% 8 250 / 0.4);
+  border-radius: 16px;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 8px 32px lch(0% 0 0 / 0.1);
 }
-.App.light-mode {
-  display: flex;
-  font-family: Audiowide, 'Segoe UI', Arial, sans-serif;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  align-items:flex-end;
-  gap: 3rem;
-  font-size: 2.3rem;
-  color: lch(0% 0 0);
-  text-shadow: 0 10px 16px lch(0% 0 0 / 0.443);
-
+.welcome-banner.light-mode {
+  background: lch(98% 3 60 / 0.6);
+  color: lch(25% 30 285);
+}
+.welcome-banner.dark-mode {
+  background: lch(18% 15 285 / 0.8);
+  color: lch(90% 8 60);
 }
 h1#welcome-title {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  text-rendering: optimizeLegibility;
   font-family: Audiowide, 'Segoe UI', Arial, sans-serif;
-  margin-top: 0;
-  font-size: 6rem;
-  color: lch(0% 0 0);
-  text-shadow: 0 8px 12px lch(1.29% 4.84 19.4 / 0.63);
+  margin: 0 0 1rem 0;
+  font-size: 3.5rem;
+  font-weight: 400;
+  color: lch(30% 50 250);
+  text-shadow: 0 4px 16px lch(0% 0 0 / 0.3);
+  letter-spacing: 2px;
+  line-height: 1.2;
+}
+.welcome-banner.light-mode h1#welcome-title {
+  color: lch(25% 40 285);
+  text-shadow: 0 2px 8px lch(0% 0 0 / 0.2);
+}
+.welcome-banner.dark-mode h1#welcome-title {
+  color: lch(85% 25 60);
+  text-shadow: 0 6px 20px lch(60% 70 285 / 0.4);
+}
+.welcome-banner p {
+  font-size: 1.2rem;
+  margin: 0;
+  color: lch(50% 25 250);
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+.welcome-banner.light-mode p {
+  color: lch(45% 20 285);
+}
+.welcome-banner.dark-mode p {
+  color: lch(75% 15 60);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .welcome-banner {
+    padding: 2rem 1rem;
+    margin: 1rem 0;
+  }
+  
+  h1#welcome-title {
+    font-size: 2.5rem;
+    letter-spacing: 1px;
+  }
+  
+  .welcome-banner p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  h1#welcome-title {
+    font-size: 2rem;
+  }
 }
 

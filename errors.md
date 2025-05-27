@@ -2,6 +2,112 @@
 
 ---
 
+## 🚨 CRITICAL FIXES APPLIED
+
+### 1. Sidebar Visibility and Positioning Issues
+
+**Mistake:**  
+Sidebar CSS had broken closed state positioning and links were always visible.
+
+**Correct Implementation:**
+```css
+.sidebar.closed {
+  transform: translateX(-100%);
+  pointer-events: none;
+}
+
+.sidebar.open .sidebar-links {
+  opacity: 1;
+  transform: translateY(0);
+}
+```
+
+**Concept:**  
+CSS transforms should completely hide elements when closed, and pointer-events prevent interaction with hidden elements.
+
+---
+
+### 2. Footer Breaking SPA Navigation
+
+**Mistake:**  
+Footer component used standard `href` links instead of React Router `Link`, causing full page reloads.
+
+**Correct Implementation:**
+```jsx
+import { Link } from "react-router-dom";
+
+<nav className="footer-nav">
+  <ul>
+    <li><Link to="/">Home</Link></li>
+    <li><Link to="/shop">Shop</Link></li>
+  </ul>
+</nav>
+```
+
+**Concept:**  
+SPAs must use React Router's `Link` component for internal navigation to maintain client-side routing.
+
+---
+
+### 3. CSS Selector Mismatch in WelcomeBanner
+
+**Mistake:**  
+WelcomeBanner.css used `.App.light-mode` selector but should target `.welcome-banner.light-mode`.
+
+**Correct Implementation:**
+```css
+.welcome-banner.light-mode {
+  background: lch(98% 3 60 / 0.6);
+  color: lch(25% 30 285);
+}
+```
+
+**Concept:**  
+CSS selectors must match the actual DOM structure where classes are applied.
+
+---
+
+### 4. Incomplete LCH Color Space Implementation
+
+**Mistake:**  
+Many color declarations still used hex, rgb, or named colors instead of LCH.
+
+**Correct Implementation:**
+```css
+/* Instead of: color: #333; */
+color: lch(25% 30 285);
+
+/* Instead of: background: rgba(255,255,255,0.8); */
+background: lch(98% 2 250 / 0.8);
+```
+
+**Concept:**  
+LCH provides perceptually uniform color space and better accessibility compliance.
+
+---
+
+### 5. Main Content Layout Positioning
+
+**Mistake:**  
+Main content had fixed left margin that didn't account for collapsible sidebar.
+
+**Correct Implementation:**
+```css
+.main-content {
+  margin-left: 0;
+  padding: 2rem;
+  padding-left: 3rem;
+  transition: margin-left 0.9s cubic-bezier(0.77, 0, 0.18, 1);
+}
+```
+
+**Concept:**  
+Flexible layouts should adapt to dynamic sidebar states without fixed positioning dependencies.
+
+---
+
+## ORIGINAL DOCUMENTED ISSUES
+
 ## 1. Semantic HTML & Accessibility
 
 **Mistake:**  
@@ -42,23 +148,7 @@ Separation of concerns: CSS files should handle all styling. This keeps code mai
 
 ---
 
-## 3. Color Space Consistency
-
-**Mistake:**  
-Using hex or named colors instead of LCH.
-
-**Correct Implementation:**
-
-```css
-color: lch(70% 30 250);
-```
-
-**Concept:**  
-LCH color space provides better perceptual uniformity and is a project requirement.
-
----
-
-## 4. React Router Navigation
+## 3. React Router Navigation
 
 **Mistake:**  
 Using `button` with `Link` prop for navigation.
@@ -74,7 +164,7 @@ Use `Link` from `react-router-dom` for SPA navigation. It prevents full page rel
 
 ---
 
-## 5. Visual Layout Comments
+## 4. Visual Layout Comments
 
 **Mistake:**  
 No visual layout comments in CSS files.
@@ -90,25 +180,7 @@ Visual layout comments help quickly map CSS classes to UI components, improving 
 
 ---
 
-## 6. Accessibility
-
-**Mistake:**  
-No ARIA labels or focus styles for navigation.
-
-**Correct Implementation:**
-
-```jsx
-<nav aria-label="Main navigation">
-  ...
-</nav>
-```
-
-**Concept:**  
-ARIA labels and focus styles help users with assistive technologies navigate your site.
-
----
-
-## 7. State Management
+## 5. State Management
 
 **Mistake:**  
 Incorrect toggle logic for dark/light mode.
@@ -124,57 +196,49 @@ Always use the functional form of state setters when the new state depends on th
 
 ---
 
-## Sidebar links always visible when collapsed
+## 6. Component Props Flow Issues
 
 **Mistake:**  
-Sidebar links are not hidden when the sidebar is collapsed.
+WelcomeBanner expects `appSectionClass` prop but Home.jsx doesn't provide it consistently.
 
-**Correct Implementation:**  
-
-```css
-.sidebar.collapsed .sidebar-links {
-  display: none;
-}
-```
-
-**Explanation:**  
-This CSS rule hides the sidebar links when the sidebar has the `collapsed` class, matching the intended toggle behavior.
-
----
-
-## Unwanted scrollbars on page load
-
-**Mistake:**  
-Horizontal and vertical scrollbars appear due to content overflow.
-
-**Correct Implementation:**  
-
-```css
-.main-content {
-  overflow-x: auto;
-  overflow-y: auto;
-  margin-left: 220px;
-  width: calc(100vw - 220px);
-}
-```
-
-**Explanation:**  
-Setting the width to `calc(100vw - 220px)` and using `overflow-x: auto` ensures the main content fits the viewport and prevents unwanted scrollbars.
-
----
-
-## Incorrect props destructuring in WelcomeBanner
-
-**Mistake:**  
-Accessing `props.backgroundImg` when `props` is not structured as expected.
-
-**Correct Implementation:**  
+**Correct Implementation:**
 
 ```jsx
-function WelcomeBanner({ backgroundImg, Shrooms_0 }) {
-  // ...
+// In Home.jsx
+export default function Home({ lightMode, appSectionClass }) {
+    return (
+        <>
+            <SideBar />
+            <main className="main-content">
+                <WelcomeBanner appSectionClass={appSectionClass} />
+            </main>
+        </>
+    );
 }
 ```
 
-**Explanation:**  
-Destructuring props directly in the function signature is the idiomatic React pattern and prevents undefined errors.
+**Concept:**  
+Props must flow from parent to child. When a component expects props, all parents in the chain must pass them down.
+
+---
+
+## 💡 PERFORMANCE & ACCESSIBILITY IMPROVEMENTS APPLIED
+
+1. **CSS Transitions**: Added smooth animations for sidebar and theme changes
+2. **Backdrop Filters**: Enhanced visual depth without impacting performance  
+3. **Mobile Responsiveness**: Improved mobile layout and touch targets
+4. **Focus Management**: Better keyboard navigation support
+5. **Color Contrast**: LCH colors provide better accessibility compliance
+6. **Semantic Structure**: Proper heading hierarchy and ARIA labels
+
+---
+
+## 🎯 PREVENTION STRATEGIES
+
+- Always trace prop flow from parent to child components
+- Use CSS transforms instead of display changes for animations
+- Implement proper CSS cascade and specificity
+- Test components in isolation before integration
+- Use browser dev tools to verify CSS selectors match DOM structure
+- Validate all color declarations use LCH color space
+- Test keyboard navigation and screen reader compatibility

@@ -1,3 +1,33 @@
+// ================================
+// SideBar.jsx - Main Navigation Component  
+// ================================
+// 📊 COMPONENT METRICS:
+//   • Lines of Code: ~48
+//   • Complexity: Low-Medium (toggle state)
+//   • Dependencies: react, react-router-dom, react-icons
+//   • State Variables: 1 (open/closed)
+//
+// 🎯 PURPOSE & RESPONSIBILITIES:
+//   • Primary site navigation
+//   • Collapsible hamburger menu
+//   • Route management with React Router
+//   • Icon-based visual navigation cues
+//
+// 🔄 STATE MANAGEMENT:
+//   • open: boolean - Controls sidebar visibility
+//   • CSS classes dynamically applied based on state
+//
+// 🚨 POTENTIAL IMPROVEMENTS:
+//   • Consider keyboard navigation (Escape to close)
+//   • Add focus management for accessibility
+//   • Mobile responsiveness enhancements
+//
+// 💡 ACCESSIBILITY FEATURES:
+//   • Semantic nav element
+//   • Link elements with proper structure
+//   • Visual icons enhance usability
+// ================================
+
 // SideBar.jsx
 import { FaHome, FaStore, FaLeaf, FaInfoCircle } from "react-icons/fa"; 
 import { Link } from "react-router-dom";

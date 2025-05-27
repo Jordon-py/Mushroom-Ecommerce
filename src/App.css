@@ -1,58 +1,184 @@
 @import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
 
-/* THEME TOGGLE BUTTON */
-.button-dark-mode, .button-light-mode {
+/* .App → Main App Container (All Pages) */
+/* .main-content → Main Content Area (All Pages) */
+/* .morph-demo-section → MorphingComponent Demo Section (Morph Demo Page) */
+/* .background → Background Image Container (All Pages) */
+/* .button-light-mode → Light Mode Toggle Button (All Pages) */
+/* .button-dark-mode → Dark Mode Toggle Button (All Pages) */
+
+/* App Background Image */
+.App-Background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -10;
+  overflow: hidden;
+}
+
+.background {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* THEME TOGGLE BUTTONS */
+button.button-dark-mode, 
+button.button-light-mode {
   position: fixed;
   top: 1rem;
-  right: 1.5rem;
+  left: 5.5rem;
   z-index: 120;
-  border-radius: 9px;
-  font-size: 1.2rem;
+  border-radius: 8px;
+  font-size: 1rem;
   font-family: 'Audiowide', 'Segoe UI', Arial, sans-serif;
   cursor: pointer;
+  padding: 0.5rem 1rem;
   border: 2px solid transparent;
   outline: none;
-  transition: background 0.4s, color 0.4s, border-color 0.4s, box-shadow 0.4s;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-  background: lch(97.93% 0.01 296.81 / 0);
-  color: lch(0% 0 0);
+  transition: all 0.4s ease;
+  box-shadow: 0 4px 12px lch(0% 0 0 / 0.15);
 }
 
 .button-dark-mode {
-  background: lch(0% 0 0);
-  color: lch(92.85% 0.71 18.58);
-  border-color: lch(70.2% 46.32 276.23);
-  animation: shroom-trippy 14s infinite linear alternate;
+  background: lch(15% 20 285 / 0.9);
+  color: lch(90% 10 60);
+  border-color: lch(45% 60 285);
+  animation: shroom-glow 8s infinite ease-in-out;
 }
 
 .button-light-mode {
-  background: lch(100% 0.01 296.81 / 0.233);
-  color: lch(0% 0 0);
-  border-color: lch(53.2% 78.25 290.37);
-  animation: shroom-trippy 14s infinite linear alternate;
+  background: lch(85% 15 60 / 0.9);
+  color: lch(20% 30 285);
+  border-color: lch(55% 40 60);
+  animation: shroom-glow 8s infinite ease-in-out;
 }
 
-.button.button-dark-mode, .button.button-light-mode {
-  border-color: lch(82.96% 29.68 51.5 / 0.897);
-  box-shadow: 0 6px 3px 4px lch(39.82% 125.96 310.95 / 0.068);
+.button-dark-mode:hover {
+  background: lch(25% 30 285 / 0.95);
+  transform: scale(1.05);
 }
 
-/* .App → Main App Container (All Pages) */
-/* .main-content → Main Content Area (All Pages) */
+.button-light-mode:hover {
+  background: lch(75% 25 60 / 0.95);
+  transform: scale(1.05);
+}
 
+/* Main App Layout */
 .App {
   display: flex;
   flex-direction: column;
-  max-height: 100vh;
+  min-height: 100vh;
+  background: lch(95% 2 250 / 0.5);
+}
+
+.App.dark-mode {
+  background: lch(15% 5 285 / 0.8);
 }
 
 .main-content {
   flex: 1 0 auto;
-  padding-left: 15%;
+  margin-left: 0;
+  padding: 2rem;
+  padding-left: 3rem;
   width: 100%;
+  max-width: 100vw;
   box-sizing: border-box;
-  animation: fade-in-up 1.8s;
-  transform: translateY(-20);
-  margin-bottom:1px;
+  animation: fade-in-up 1.2s ease-out;
+  overflow-x: auto;
+  transition: margin-left 0.9s cubic-bezier(0.77, 0, 0.18, 1);
+}
+
+/* Content sections */
+.home-content,
+.shop-content,
+.mycology-content,
+.about-content {
+  max-width: 800px;
+  margin: 2rem 0;
+  padding: 2rem;
+  background: lch(98% 2 250 / 0.7);
+  border-radius: 12px;
+  backdrop-filter: blur(3px);
+  box-shadow: 0 4px 20px lch(0% 0 0 / 0.1);
+}
+
+.App.dark-mode .home-content,
+.App.dark-mode .shop-content,
+.App.dark-mode .mycology-content,
+.App.dark-mode .about-content {
+  background: lch(20% 8 285 / 0.8);
+  color: lch(90% 5 60);
+}
+
+/* Morph Demo Styles */
+.morph-demo-section {
+  margin: 2rem 0;
+  border: 2px dashed lch(60% 40 250);
+  border-radius: 12px;
+  padding: 2rem;
+  background: lch(96% 5 250 / 0.6);
+}
+
+.morph-demo-title {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: lch(30% 50 250);
+  font-family: 'Audiowide', sans-serif;
+}
+
+.morph-demo-instructions {
+  text-align: center;
+  font-size: 1rem;
+  margin-top: 1.5rem;
+  color: lch(40% 30 250);
+}
+
+/* Animations */
+@keyframes shroom-glow {
+  0%, 100% { 
+    filter: hue-rotate(0deg) saturate(1) brightness(1);
+    box-shadow: 0 4px 12px lch(0% 0 0 / 0.15);
+  }
+  50% { 
+    filter: hue-rotate(180deg) saturate(1.3) brightness(1.1);
+    box-shadow: 0 6px 20px lch(60% 70 285 / 0.3);
+  }
+}
+
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .main-content {
+    padding: 1rem;
+    padding-left: 1.5rem;
+  }
+  
+  button.button-dark-mode, 
+  button.button-light-mode {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.8rem;
+    left: 4.5rem;
+  }
+  
+  .home-content,
+  .shop-content,
+  .mycology-content,
+  .about-content {
+    padding: 1.5rem;
+  }
 }
 

@@ -1,6 +1,6 @@
 /* .background → Full Page Background Image (All Pages) */
 
-.background {
+.App-background {
   position: fixed;
   top: 0;
   left: 0;
@@ -10,6 +10,6 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  z-index: -11;
+  z-index: -15
 }
 

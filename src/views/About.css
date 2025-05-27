@@ -1,0 +1,106 @@
+/* .about-page → About Page Container
+   .about-header → About Page Header Section
+   .about-morphing-section → MorphingComponent Container
+   .about-view → Individual Morphing Views
+   .about-welcome → Welcome View Styling
+   .about-process → Process View Styling
+   .about-mission → Mission View Styling
+   .about-footer → About Page Footer
+*/
+
+.about-page {
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  min-height: 100vh;
+}
+
+.about-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.about-header h1 {
+  font-size: 2.5rem;
+  color: lch(35% 50 280);
+  margin-bottom: 1rem;
+}
+
+.about-header p {
+  font-size: 1.1rem;
+  color: lch(45% 30 260);
+}
+
+.about-morphing-section {
+  margin: 2rem 0;
+}
+
+.about-morph-container {
+  background: lch(98% 0 0);
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 4px 12px lch(0% 0 0 / 0.1);
+}
+
+.about-view {
+  text-align: center;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-view h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: lch(30% 60 280);
+}
+
+.about-view p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  max-width: 600px;
+  color: lch(40% 20 260);
+}
+
+.about-welcome {
+  background: lch(95% 20 80 / 0.15);
+}
+
+.about-process {
+  background: lch(90% 40 120 / 0.15);
+}
+
+.about-mission {
+  background: lch(85% 60 300 / 0.15);
+}
+
+.about-footer {
+  text-align: center;
+  margin-top: 2rem;
+  padding: 1rem;
+  color: lch(50% 15 260);
+  font-style: italic;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .about-page {
+    padding: 1rem;
+  }
+  
+  .about-header h1 {
+    font-size: 2rem;
+  }
+  
+  .about-view h2 {
+    font-size: 1.5rem;
+  }
+  
+  .about-view p {
+    font-size: 1rem;
+  }
+}

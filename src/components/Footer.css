@@ -4,12 +4,16 @@
 /* .footer-contact → Footer Contact Info (All Pages) */
 
 .footer {
-  margin-bottom: 0;
-  position: fixed;
+  position: absolute;
+  bottom: 0;
   width: 100%;
-  background: lch(0% 0 0 / 0.123);
-  padding: 1.2rem 0 0.8rem 0;
-  box-shadow: 0 -2px 12px lch(0% 0 0 / 0.08);
+  background: lch(61.66% 59.87 273.43 / 0.123);
+  backdrop-filter: blur(5px);
+  padding: 1.5rem 0 1rem 0;
+  margin-top: auto;
+  box-shadow: 0 -2px 12px lch(0% 0 0 / 0.1);
+  border-top: 1px solid lch(85% 15 250 / 0.3);
+  z-index: 10;
 }
 
 .footer-content {
@@ -17,7 +21,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  max-width: 1260px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
 }
@@ -28,44 +32,64 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
+  gap: 2rem;
   margin: 0;
   padding: 0;
-  position: sticky;
 }
 
 .footer-nav a {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: lch(30% 40 250);
+  color: lch(75% 20 250);
   text-decoration: none;
   font-weight: 500;
-  transition: color 0.2s;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: all 0.3s ease;
 }
+
 .footer-nav a:hover,
-.footer-nav a:focus, .footer-contact:hover {
-  color: lch(60.29% 62.32 276.19);
-  text-decoration: underline;
-  cursor: pointer;
+.footer-nav a:focus {
+  color: lch(85% 40 276);
+  background: lch(20% 15 250 / 0.3);
+  text-decoration: none;
 }
 
 .footer-contact {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.5rem;
+  color: lch(70% 15 250);
+  font-size: 0.9rem;
 }
 
-@media (max-width: 700px) {
+.footer-contact a {
+  color: lch(75% 25 250);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-contact a:hover {
+  color: lch(85% 45 276);
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
   .footer-content {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem;
-    padding: 1rem;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
   }
+  
+  .footer-nav ul {
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  
   .footer-contact {
-    text-align: left;
+    align-items: center;
   }
 }

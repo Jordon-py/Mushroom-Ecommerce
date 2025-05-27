@@ -13,14 +13,20 @@
 // ================================
 
 import "./WelcomeBanner.css";
+import PropTypes from 'prop-types';
 
-function WelcomeBanner({ appSectionClass }) {
+function WelcomeBanner({ appSectionClass = '', welcome = "Trippy.Shroom Store" }) {
   return (
-    <header className={ appSectionClass } aria-labelledby="welcome-title">
-      <h1 id="welcome-title">Trippy.Shroom Store</h1>
-      <p id="p">Your source for premium spores and grow bags.</p>
+    <header className={`welcome-banner ${appSectionClass}`} aria-labelledby="welcome-title">
+      <h1 id="welcome-title">{welcome}</h1>
+      <p>Your source for premium spores and grow bags.</p>
     </header>
   );
 }
+
+WelcomeBanner.propTypes = {
+  appSectionClass: PropTypes.string,
+  welcome: PropTypes.string,
+};
 
 export default WelcomeBanner;

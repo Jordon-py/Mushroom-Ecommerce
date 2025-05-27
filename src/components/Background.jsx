@@ -3,7 +3,7 @@ import "./Background.css";
 export default function Background({ image }) {
   return (
     <div
-      className="background"
+      className="App-background"
       style={{ backgroundImage: `url(${image})` }}
       aria-hidden="true"
     />

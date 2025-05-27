@@ -1,87 +1,127 @@
+/* .sidebar → Main Navigation Container (All Pages) */
+/* .sidebar-links → Navigation Links List (All Pages) */
+/* .sidebar-icon → Navigation Icons (All Pages) */
+/* .hamburger-btn → Menu Toggle Button (All Pages) */
+/* .trippy-link → Animated Navigation Links (All Pages) */
+
 @import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
 
-
-/* 1. Sidebar (container): closed state */
-.sidebar.closed {
-    position: fixed;
-    top: 0; left: 0;
-    height: 100%;
-    width: 250px;
-    max-width: 90vw;
-  
-    padding: 1.5rem 1rem 1rem 1.25rem;
-    transition: transform 0.9s cubic-bezier(.77,0,.18,1);
-    z-index: 10;
-    pointer-events: auto; /* allow interaction when open */
-}
-
-/* Hide links when closed */
-.sidebar.closed .sidebar-links {
-  transition: all 2.5s ease-in-out; /* smooth transition for hiding links */
-  opacity: 0; /* fade out effect */
-  transform: translateX(-100%); /* slide out effect */
-  pointer-events: none; /* disable interaction when closed */
-}
-
-/* Hide links when closed */
-.sidebar.open .sidebar-links {
-  
-  transition: all 2.5s cubic-bezier(0.455, 0.03, 0.515, 0.955); /* smooth transition for hiding links */
-  opacity: 1; /* fade out effect */
-  transform: translateX(20%) translateY(15%);
-}
-
-/* 2. Sidebar (container): open state */
-.sidebar.open {
-  position: fixed;
-  top: 0; left: 0;
-  height: 100%;
+/* Sidebar base styles */
+.sidebar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
   width: 250px;
   max-width: 90vw;
-  transform: translateX(0);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
+  background: lch(95% 5 250 / 0.95);
+  backdrop-filter: blur(8px);
   padding: 1.5rem 1rem 1rem 1.25rem;
-  backdrop-filter: blur(5px);
-  transition: transform 1.2s cubic-bezier(.77,0,.18,1), backdrop-filter 5.9s;
   z-index: 15;
-  pointer-events: auto; /* allow interaction when open */
+  transition: transform 0.9s cubic-bezier(0.77, 0, 0.18, 1);
+  box-shadow: 2px 0 12px lch(0% 0 0 / 0.15);
 }
 
-/* Sidebar links list */
+/* Closed state - slide out to the left */
+.sidebar.closed {
+  transform: translateX(-100%);
+  pointer-events: none;
+}
+
+/* Open state - visible and accessible */
+.sidebar.open {
+  transform: translateX(0);
+  pointer-events: auto;
+}
+
+/* Links container */
 ul.sidebar-links {
   font-family: Audiowide, 'Segoe UI', Arial, sans-serif;
-  font-size: 1.9rem; /* font size for links */
+  font-size: 1.2rem;
   width: 100%;
   padding: 0;
-  margin-left: -22%;
+  margin: 2rem 0 0 0;
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 8.1rem; /* vertical space between links */
+  gap: 2rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease 0.3s, transform 0.6s ease 0.3s;
+}
+
+/* Show links when sidebar is open */
+.sidebar.open .sidebar-links {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Link styling */
+.trippy-link {
+  display: flex;
+  align-items: center;
+  color: lch(25% 40 250);
   text-decoration: none;
-  color: lch(0% 0 0);
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  font-weight: 500;
 }
 
-/* Sidebar icon (uses React Icons) */
+.trippy-link:hover,
+.trippy-link:focus {
+  color: lch(60% 62 276);
+  background: lch(90% 10 250 / 0.3);
+  transform: translateX(5px);
+}
+
+/* Sidebar icon */
 .sidebar-icon {
-  margin-right: 0.1em;
-  font-size: 1em;
-  vertical-align: middle;
-  display: inline-block;
+  margin-right: 0.75rem;
+  font-size: 1.1em;
+  color: lch(45% 50 250);
+  transition: color 0.3s ease;
 }
 
-/* Hamburger Button (top left) */
+.trippy-link:hover .sidebar-icon {
+  color: lch(65% 65 276);
+}
+
+/* Hamburger button */
 .hamburger-btn {
   position: fixed;
   top: 1rem;
   left: 1rem;
   z-index: 25;
-  background: lch(26.51% 42.62 285.18 / 0.671);
-  border: none;
+  background: lch(26% 43 285 / 0.9);
+  color: lch(95% 5 0);
+  border: 2px solid lch(45% 60 285);
   border-radius: 6px;
-  font-size: 2.1rem;
-  /* box-shadow property was incomplete and has been removed for now */
+  font-size: 2rem;
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px lch(0% 0 0 / 0.2);
+}
+
+.hamburger-btn:hover {
+  background: lch(35% 50 285 / 0.95);
+  border-color: lch(55% 70 285);
+  transform: scale(1.05);
+}
+
+.hamburger-btn:active {
+  transform: scale(0.95);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 80vw;
+  }
+  
+  ul.sidebar-links {
+    font-size: 1.1rem;
+    gap: 1.5rem;
+  }
 }
