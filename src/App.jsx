@@ -76,7 +76,8 @@ export default function App() {
 
       {/* Main application content with routing */}
       <div className={appSectionClass}>
-        {/* Single Page App Routing (each route displays a different page/component) */}        <Routes>
+        {/* Single Page App Routing (each route displays a different page/component) */}
+        <Routes>
           <Route path="/" element={<Home lightMode={lightMode} appSectionClass={appSectionClass} />} />
           <Route path="/shop" element={<Shop />} />
           <Route path="/mycology" element={<Mycology101 />} />

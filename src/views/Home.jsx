@@ -39,7 +39,8 @@ export default function Home({ lightMode, appSectionClass }) {
             <main className="main-content">
                 <WelcomeBanner 
                     appSectionClass={appSectionClass} 
-                    welcome="Trippy.Shroom Store" 
+                    welcome="Fungal Labs"
+                    lightMode={lightMode} 
                 />
                 <section className="home-content">
                     <h2>Premium Mushroom Spores & Growing Supplies</h2>

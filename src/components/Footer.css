@@ -4,14 +4,13 @@
 /* .footer-contact → Footer Contact Info (All Pages) */
 
 .footer {
+  display:block;
   position: absolute;
   bottom: 0;
   width: 100%;
   background: lch(61.66% 59.87 273.43 / 0.123);
   backdrop-filter: blur(5px);
-  padding: 1.5rem 0 1rem 0;
-  margin-top: auto;
-  box-shadow: 0 -2px 12px lch(0% 0 0 / 0.1);
+  box-shadow: 0 -2px 12px lch(19.77% 38.24 286.35 / 0.253);
   border-top: 1px solid lch(85% 15 250 / 0.3);
   z-index: 10;
 }
@@ -21,9 +20,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
+  padding-right: 4rem;
 }
 
 .footer-nav ul {

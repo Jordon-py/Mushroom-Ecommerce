@@ -3,6 +3,7 @@
 /* Welcome Banner Container (Homepage) */
 .welcome-banner {
   display: flex;
+  font-size: 6rem;
   font-family: Audiowide, 'Segoe UI', Arial, sans-serif;
   flex-direction: column;
   align-items: center;
@@ -10,13 +11,13 @@
   text-align: center;
   padding: 3rem 2rem;
   margin: 2rem 0;
-  background: lch(96% 8 250 / 0.4);
+  background: lch(95.98% 7.07 240.06 / 0.281);
   border-radius: 16px;
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(3px);
   box-shadow: 0 8px 32px lch(0% 0 0 / 0.1);
 }
 .welcome-banner.light-mode {
-  background: lch(98% 3 60 / 0.6);
+  background: lch(98% 3.19 58.88 / 0);
   color: lch(25% 30 285);
 }
 .welcome-banner.dark-mode {
@@ -26,7 +27,7 @@
 h1#welcome-title {
   font-family: Audiowide, 'Segoe UI', Arial, sans-serif;
   margin: 0 0 1rem 0;
-  font-size: 3.5rem;
+  font-size: 5.5rem;
   font-weight: 400;
   color: lch(30% 50 250);
   text-shadow: 0 4px 16px lch(0% 0 0 / 0.3);
