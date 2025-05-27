@@ -18,8 +18,6 @@ import { Routes, Route } from "react-router-dom";
 
 // Importing custom components and assets
 import WelcomeBanner from "./components/WelcomeBanner";
-import Background from "./components/Background";
-import { MorphingComponent } from "./components/MorphingComp";
 import Shrooms_3 from "./assets/Shrooms_3.png";
 import Shrooms_0 from "./assets/Shrooms_0.png";
 import SideBar from "./components/SideBar";
@@ -59,7 +57,8 @@ export default function App() {
     <>
       {/* Background artwork is visually placed behind the main content */}
       <span className="App-Background" id="background">
-        <Background image={backgroundImg} />
+        {/* Use asset directly as src in JSX */}
+        <img src={backgroundImg} alt="Background" className="background" aria-hidden="true" />
       </span>
 
       <div className={appSectionClass}>
