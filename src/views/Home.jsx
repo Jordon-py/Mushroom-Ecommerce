@@ -29,13 +29,12 @@
 //   • Clear content hierarchy
 // ================================
 
-import SideBar from "../components/SideBar"
+
 import WelcomeBanner from "../components/WelcomeBanner";
 
 export default function Home({ lightMode, appSectionClass }) {
     return (
         <>
-            <SideBar />
             <main className="main-content">
                 <WelcomeBanner 
                     appSectionClass={appSectionClass} 

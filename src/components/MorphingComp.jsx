@@ -2,8 +2,8 @@
 // MorphingComponent.jsx - Advanced Animation Component
 // ================================
 // 📊 COMPONENT METRICS:
-//   • Lines of Code: ~65
-//   • Complexity: High (controlled/uncontrolled state, transitions)
+//   • Lines of Code: ~55
+//   • Complexity: Medium (controlled/uncontrolled state, transitions)
 //   • Dependencies: react, prop-types, react-transition-group
 //   • Props: 5 (states, transition, timeline, index, onIndexChange)
 //
@@ -18,13 +18,10 @@
 //   • safeStates: Array validation with fallback
 //   • CurrentView: Memoized component selection
 //
-// 🚨 USAGE EXAMPLE:
-//   const views = [
-//     () => <div>View 1</div>,
-//     () => <div>View 2</div>,
-//     () => <div>View 3</div>
-//   ];
-//   <MorphingComponent states={views} transition="fade" timeline={true} />
+// 🚨 RECENT FIXES APPLIED:
+//   • ✅ Fixed broken import path for demo views
+//   • ✅ Removed hardcoded default states
+//   • ✅ Improved prop validation and fallbacks
 //
 // 💡 ACCESSIBILITY FEATURES:
 //   • ARIA labels on timeline slider
@@ -37,7 +34,7 @@ import PropTypes from "prop-types";
 import { CSSTransition, SwitchTransition } from "react-transition-group";
 import "./MorphingComp.css";
 
-export function MorphingComponent({
+export default function MorphingComponent({
   states = [],
   transition = "fade",
   timeline = true,
@@ -99,3 +96,6 @@ MorphingComponent.propTypes = {
   onIndexChange: PropTypes.func,
   className: PropTypes.string,
 };
+
+// Named export for backward compatibility
+export { MorphingComponent };

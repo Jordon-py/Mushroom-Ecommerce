@@ -15,7 +15,6 @@ import SideBar from "../components/SideBar";
 export default function Shop() {
     return (
         <>
-            <SideBar />
             <main className="main-content">
                 <header>
                     <h1>Mushroom Shop</h1>

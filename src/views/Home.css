@@ -1,0 +1,17 @@
+/* .home-content → Homepage main content section */
+.home-content {
+  width: 100%;
+  padding: 2rem;
+  text-align: center;
+  margin: 32px auto;
+}
+
+.home-content h2 {
+  color: lch(20% 40 250);
+  margin-bottom: 1rem;
+}
+
+.home-content p {
+  color: lch(40% 20 250);
+  font-size: 1.2rem;
+}

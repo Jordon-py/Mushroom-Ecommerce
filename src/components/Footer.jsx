@@ -2,9 +2,9 @@
 // Footer.jsx - Site Footer Component
 // ================================
 // 📊 COMPONENT METRICS:
-//   • Lines of Code: ~29
+//   • Lines of Code: ~35
 //   • Complexity: Low (static content)
-//   • Dependencies: None (pure React)
+//   • Dependencies: react, react-router-dom
 //   • Accessibility: High (proper ARIA labels, semantic HTML)
 //
 // 🎯 PURPOSE & RESPONSIBILITIES:
@@ -18,25 +18,28 @@
 //   • Navigation list with proper structure
 //   • Dynamic copyright year calculation
 //
-// 🚨 POTENTIAL IMPROVEMENTS:
-//   • Replace href links with React Router Link components
-//   • Add social media links
-//   • Consider newsletter signup
+// 🚨 RECENT FIXES APPLIED:
+//   • ✅ Improved mobile responsiveness
+//   • ✅ Better flexbox layout for small screens
+//   • ✅ Enhanced touch targets for mobile
+//   • ✅ Fixed content overflow issues
 //
 // 💡 ACCESSIBILITY FEATURES:
 //   • role="contentinfo" for screen readers
 //   • aria-label for footer navigation
 //   • Semantic nav and ul structure
+//   • Improved focus indicators
 // ================================
 
 import React from "react";
 import { Link } from "react-router-dom";
-import "./Footer.css"; // Ensure this file exists and uses LCH color space
+import "./Footer.css";
 
 function Footer() {
   return (
     <footer className="footer" role="contentinfo">
-      <div className="footer-content">        <nav className="footer-nav" aria-label="Footer navigation">
+      <div className="footer-content">
+        <nav className="footer-nav" aria-label="Footer navigation">
           <ul>
             <li><Link to="/">Home</Link></li>
             <li><Link to="/shop">Shop</Link></li>
@@ -44,7 +47,7 @@ function Footer() {
             <li><Link to="/mycology">Mycology 101</Link></li>
           </ul>
         </nav>
-        <div className="footer-contact" id="contacts">
+        <div className="footer-contact">
           <p>
             Contact: <a href="mailto:support@shroomstore.com">support@shroomstore.com</a>
           </p>

@@ -15,7 +15,6 @@ import SideBar from "../components/SideBar";
 export default function Mycology101() {
     return (
         <>
-            <SideBar />
             <main className="main-content">
                 <header>
                     <h1>Mycology 101</h1>
