@@ -3,7 +3,7 @@
 /* Welcome Banner Container (Homepage) */
 .welcome-banner {
   display: flex;
-  font-size: 6rem;
+  font-size: 5rem;
   font-family: Audiowide, 'Segoe UI', Arial, sans-serif;
   flex-direction: column;
   align-items: center;
@@ -11,8 +11,8 @@
   text-align: center;
   background: lch(88.66% 19.41 243.28 / 0.281);
   border-radius: 16px;
-  backdrop-filter: blur(3px);
-  box-shadow: 0 8px 32px lch(0% 0 0 / 0.1);
+  backdrop-filter: blur(4px);
+  box-shadow: 0 9px 25px lch(0% 0 0 / 0.1);
 }
 .welcome-banner.light-mode {
   background: lch(98% 3.19 58.88 / 0);

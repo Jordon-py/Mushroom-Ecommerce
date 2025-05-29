@@ -18,14 +18,14 @@
 }
 
 .about-header h1 {
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   color: lch(35% 50 280);
   margin-bottom: 1rem;
   font-family: 'Audiowide', sans-serif;
 }
 
 .about-header p {
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: lch(45% 30 260);
 }
 
@@ -36,23 +36,23 @@
 }
 
 .about-section {
-  background: lch(98% 0 0);
+  background: lch(97.93% 0.01 296.81 / 0.201);
   border-radius: 1rem;
   padding: 2rem;
   margin-bottom: 2rem;
-  box-shadow: 0 4px 12px lch(0% 0 0 / 0.1);
+  box-shadow: 0 4px 12px lch(0% 0 0 / 0.195);
   text-align: center;
 }
 
 .about-section h2 {
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   margin-bottom: 1.5rem;
   color: lch(30% 60 280);
 }
 
 .about-section p {
-  font-size: 1.1rem;
-  line-height: 1.6;
+  font-size: 1rem;
+  line-height: 1.75;
   color: lch(40% 20 260);
   max-width: 600px;
   margin: 0 auto;
@@ -65,7 +65,7 @@
   }
   
   .about-header h1 {
-    font-size: 2rem;
+    font-size: 1.75rem;
   }
   
   .about-content {
@@ -77,7 +77,7 @@
   }
   
   .about-section h2 {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
   
   .about-section p {

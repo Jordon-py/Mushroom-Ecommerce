@@ -61,7 +61,7 @@ button.button-light-mode {
   width: 1px;
   height: 1px;
   padding: 0;
-  margin: -1px;
+  margin: 1px;
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
@@ -95,7 +95,8 @@ button.button-light-mode {
 
 .button-dark-mode:hover .theme-icon,
 .button-light-mode:hover .theme-icon {
-  transform: scale(1.1);
+  transform: scale(1.2) rotate(720deg);
+  transition: transform 0.8s ease;
 }
 
 .button-dark-mode:focus,
@@ -109,8 +110,8 @@ button.button-light-mode {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  font-size: 2rem;
-  gap: 3rem;
+  font-size: 1.7rem;
+  gap: 2rem;
   max-height: 100%;
   background: lch(7.47% 14.95 265.46 / 0.103);
   padding-bottom: 120px; /* Space for footer */
@@ -127,7 +128,7 @@ button.button-light-mode {
   flex-wrap: wrap;
   align-content: flex-start;
   max-width: 100%;
-  animation: fade-in-up 2.2s ease-out;
+  animation: fade-in-up 2.1s ease-out;
   overflow-x: hidden;
   transition: margin-left 0.9s cubic-bezier(0.77, 0, 0.18, 1);
   max-height: 1000px;
@@ -140,10 +141,10 @@ button.button-light-mode {
 .mycology-content,
 .about-content {
   max-width: 800px;
-  margin: 32px auto;
+  margin: 40px auto;
   padding: 2rem;
   background: lch(11.16% 5.79 248.3 / 0);
-  border-radius: 12px;
+  border-radius: 14px;
   backdrop-filter: blur(3px);
   box-shadow: 0 4px 20px lch(0% 0 0 / 0.1);
 }
@@ -186,7 +187,7 @@ button.button-light-mode {
 /* Mobile Responsiveness - Enhanced */
 @media (max-width: 768px) {
   .App {
-    padding-bottom: 220px; /* More space for mobile footer */
+    padding-bottom: 200px; /* More space for mobile footer */
   }
 
   .main-content {
