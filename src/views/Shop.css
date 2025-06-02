@@ -1,8 +1,8 @@
 /* .shop-content → Main shop container */
 .main-content {
-    margin: 20px auto;
+    margin: 0px auto;
     max-width: 1000px;
-    backdrop-filter: blur(3px);
+    backdrop-filter: blur(5px);
   
 }
 
@@ -23,11 +23,11 @@
   color: lch(36% 58 265);
   margin-bottom: 1.4rem;
   letter-spacing: 1.1px;
-  background: linear-gradient(150deg, #ffe97a 10%, #7b61ff 70%);
+  background: linear-gradient(180deg, #ffe97a 15%, #7b61ff 70%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 0 2px 12px lch(0% 0 0 / 0.169);
+  text-shadow:  0px 8px 15px  lch(100% 0.01 296.81 / 0.483);
 }
 
 .shop-content {
@@ -43,11 +43,11 @@
 }
 
 .shop-content h2 {
-  font-size: 2.2rem;
+  font-size: 2.9rem;
   color: lch(36% 58 265);
   margin-bottom: 1.4rem;
   letter-spacing: 1.1px;
-  background: linear-gradient(130deg, #ffe97a 10%, #7b61ff 70%);
+  background: linear-gradient(180deg, #ffe97a 10%, #7b61ff 70%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -55,28 +55,31 @@
 }
 
 .shop-content p {
-  color: lch(38% 26 260);
-  font-size: 1.08rem;
-  margin-bottom: 1.3rem;
+  font-family: 'Courier New', Courier, monospace;
+  color: lch(6.92% 13.64 262.64);
+  font-size: 1.5rem;
+  margin-bottom: 4rem;
+  font-weight: 550;
+  line-height: 1.6;
 }
 
 .shop-content ul {
   list-style: square inside;
-  color: lch(33% 42 258);
+  color: lch(7.34% 13.77 261.36);
   margin: 0 auto 1.4rem auto;
   padding: 0;
-  font-size: 1.06rem;
+  font-size: 1.5rem;
   max-width: 400px;
 }
 
 .shop-content li {
-  margin-bottom: 0.55rem;
+  margin-bottom: 1.5rem;
 }
 
 .coming-soon {
   border-left: 5px solid #7b61ff;
   padding-left: 1.5rem;
-  background: lch(99% 3 255 / 0.08);
+  background: lch(62.51% 38.46 246.4 / 0.247);
   border-radius: 0.6rem;
   box-shadow: 0 1px 7px lch(35% 14 250 / 0.09);
 }

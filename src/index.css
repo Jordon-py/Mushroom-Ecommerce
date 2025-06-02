@@ -7,13 +7,13 @@
   --bg-main: lch(97% 7 var(--brand-hue));
   --bg-glass: lch(94% 15 var(--brand-hue) / 0.68);
   --glass-blur: blur(13px) saturate(140%);
-  --glass-border: lch(82% 12 var(--brand-hue) / 0.17);
-  --shadow-main: 0 4px 32px lch(30% 18 var(--brand-hue) / 0.17);
+  --glass-border: lch(82% 12 var(--brand-hue) / 0.23);
+  --shadow-main: 0 4px 32px lch(30% 18 var(--brand-hue) / 0.23);
   --text-main: lch(17% 6 var(--brand-hue));
   --text-glow: lch(90% 60 var(--brand-hue));
   --link-main: lch(55% 50 var(--brand-hue));
   --link-hover: lch(95% 35 var(--brand-hue));
-  --transition-main: 0.64s cubic-bezier(.77,0,.18,1);
+  --transition-main: 0.84s cubic-bezier(.77,0,.18,1);
   /* Footer specifics */
   --footer-bg: var(--bg-glass);
   --footer-border: var(--glass-border);
@@ -24,7 +24,7 @@
   --bg-main: lch(16% 18 var(--brand-hue));
   --bg-glass: lch(18% 13 var(--brand-hue) / 0.93);
   --glass-border: lch(36% 24 var(--brand-hue) / 0.23);
-  --shadow-main: 0 4px 36px lch(7% 31 var(--brand-hue) / 0.27);
+  --shadow-main: -3px 4px 36px lch(7% 31 var(--brand-hue) / 0.27);
   --text-main: lch(93% 8 var(--brand-hue));
   --text-glow: lch(97% 58 var(--brand-hue));
   --link-main: lch(91% 32 var(--brand-hue));
