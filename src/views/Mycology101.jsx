@@ -11,12 +11,15 @@
 // ================================
 
 import SideBar from "../components/SideBar";
+import "./Mycology101.css";
+
+
 
 export default function Mycology101() {
     return (
         <>
             <main className="main-content">
-                <header>
+                <header id="main-header">
                     <h1>Mycology 101</h1>
                     <p>Learn the basics of mushroom cultivation</p>
                 </header>

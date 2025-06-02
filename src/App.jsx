@@ -28,7 +28,7 @@
 // ================================
 
 import "./App.css";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import Background from "./components/Background";
 import Footer from "./components/Footer";
@@ -45,6 +45,7 @@ export default function App() {
   // -------------------------------
   // State: Controls the light/dark mode for the app
   // -------------------------------
+  // Default theme is set to light mode for better readability and user preference.
   const [lightMode, setLightMode] = useState(true);
 
   // Toggle theme handler
@@ -56,7 +57,14 @@ export default function App() {
   const themeIcon = lightMode ? "🌙" : "☀️";
   const themeLabel = lightMode ? "Switch to Dark Mode" : "Switch to Light Mode";
   const backgroundImg = lightMode ? "/Shrooms_0.png" : "/Shrooms_3.png";
-  
+
+   useEffect(() => {
+    document.documentElement.setAttribute(
+      'data-theme',
+      lightMode ? 'light' : 'dark'
+     );
+   }, [lightMode]);
+
   return (
     <>
       {/* Background artwork is visually placed behind the main content */}

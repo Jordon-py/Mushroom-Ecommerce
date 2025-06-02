@@ -84,3 +84,25 @@
     font-size: 1rem;
   }
 }
+/* In Footer.css or App.css */
+@media (prefers-reduced-motion: no-preference) {
+  .footer-glass {
+    animation: footerGlassIn 1.1s cubic-bezier(.77,0,.18,1);
+  }
+  @keyframes footerGlassIn {
+    0%   { opacity: 0; transform: translateY(60px) scale(0.99);}
+    60%  { opacity: 1; transform: translateY(-10px) scale(1.03);}
+    100% { opacity: 1; transform: translateY(0) scale(1);}
+  }
+}
+
+/* Optional: main content entrance */
+@media (prefers-reduced-motion: no-preference) {
+  .main-content {
+    animation: fadeInUp 1.4s cubic-bezier(.77,0,.18,1) 0.15s both;
+  }
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(48px) scale(0.97);}
+    to   { opacity: 1; transform: translateY(0) scale(1);}
+  }
+}

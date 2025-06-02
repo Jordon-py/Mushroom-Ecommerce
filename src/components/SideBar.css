@@ -126,3 +126,64 @@ ul.sidebar-links {
     gap: 1.5rem;
   }
 }
+/* === Animated Shimmer Underline for Sidebar Links === */
+.trippy-link {
+  position: relative;
+  overflow: hidden; /* Ensures underline doesn't spill out */
+  background: none; /* Remove background on hover for clean effect */
+  /* rest of your existing .trippy-link styles... */
+}
+
+.trippy-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 6px;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    #7b61ff 0%,
+    #46eaff 22%,
+    #ffe97a 48%,
+    #ff6fcf 70%,
+    #7b61ff 100%
+  );
+  border-radius: 2px;
+  transform: scaleX(0);
+  transform-origin: left;
+  opacity: 0.85;
+  transition:
+    transform 0.39s cubic-bezier(.7,0,.18,1),
+    opacity 0.21s,
+    background-position 1.5s linear;
+  background-size: 200% 100%;
+  background-position: 0% 0%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* On hover/focus: shimmer and grow the underline */
+.trippy-link:hover::after,
+.trippy-link:focus::after {
+  transform: scaleX(1);
+  opacity: 1;
+  background-position: 100% 0%; /* animate the gradient for shimmer */
+  animation: shimmer-underline 1.6s linear forwards;
+}
+
+@keyframes shimmer-underline {
+  from { background-position: 0% 0%; }
+  to   { background-position: 100% 0%; }
+}
+
+/* Improve color for .trippy-link text and icon on hover */
+.trippy-link:hover, .trippy-link:focus {
+  color: lch(70% 60 270);
+  text-shadow: 0 2px 18px #7b61ff44;
+  background: none; /* Remove old background on hover for modern look */
+}
+.trippy-link:hover .sidebar-icon,
+.trippy-link:focus .sidebar-icon {
+  color: #46eaff;
+}

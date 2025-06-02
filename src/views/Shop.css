@@ -1,0 +1,99 @@
+/* .shop-content → Main shop container */
+.main-content {
+    margin: 20px auto;
+    max-width: 1000px;
+    backdrop-filter: blur(3px);
+  
+}
+
+#main-header {
+    background: lch(98.39% 3.44 225.83 / 0.23);
+    border-radius: 1.2rem;
+    box-shadow: 0 4px 20px lch(59.92% 42.17 265.29 / 0.367);
+    margin: 2.5rem auto;
+    padding: 2.7rem 2rem 2rem 2rem;
+    max-width: 880px;
+    text-align: center;
+    animation: fadeInUp 1.4s cubic-bezier(.77,0,.18,1) .6s both;
+    font-family: 'Audiowide', 'Segoe UI', Arial, sans-serif;
+}
+
+#main-header h1  {
+  font-size: 3.2rem;
+  color: lch(36% 58 265);
+  margin-bottom: 1.4rem;
+  letter-spacing: 1.1px;
+  background: linear-gradient(150deg, #ffe97a 10%, #7b61ff 70%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 2px 12px lch(0% 0 0 / 0.169);
+}
+
+.shop-content {
+  background: lch(96% 12 245 / 0.23);
+  border-radius: 1.2rem;
+  box-shadow: 0 4px 20px lch(60% 42 265 / 0.11);
+  margin: 2.5rem auto;
+  padding: 2.7rem 2rem 2rem 2rem;
+  max-width: 880px;
+  text-align: center;
+  animation: fadeInUp 1.4s cubic-bezier(.77,0,.18,1) 1.3s both;
+  font-family: 'Audiowide', 'Segoe UI', Arial, sans-serif;
+}
+
+.shop-content h2 {
+  font-size: 2.2rem;
+  color: lch(36% 58 265);
+  margin-bottom: 1.4rem;
+  letter-spacing: 1.1px;
+  background: linear-gradient(130deg, #ffe97a 10%, #7b61ff 70%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 2px 12px lch(0% 0 0 / 0.146);
+}
+
+.shop-content p {
+  color: lch(38% 26 260);
+  font-size: 1.08rem;
+  margin-bottom: 1.3rem;
+}
+
+.shop-content ul {
+  list-style: square inside;
+  color: lch(33% 42 258);
+  margin: 0 auto 1.4rem auto;
+  padding: 0;
+  font-size: 1.06rem;
+  max-width: 400px;
+}
+
+.shop-content li {
+  margin-bottom: 0.55rem;
+}
+
+.coming-soon {
+  border-left: 5px solid #7b61ff;
+  padding-left: 1.5rem;
+  background: lch(99% 3 255 / 0.08);
+  border-radius: 0.6rem;
+  box-shadow: 0 1px 7px lch(35% 14 250 / 0.09);
+}
+
+@media (max-width: 800px) {
+  .shop-content {
+    padding: 1.3rem 0.5rem;
+  }
+  .coming-soon {
+    padding-left: 0.7rem;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(48px) scale(0.98);}
+    to   { opacity: 1; transform: translateY(0) scale(1);}
+  }
+}
+/* Responsive Design */

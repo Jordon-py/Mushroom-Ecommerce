@@ -11,12 +11,15 @@
 // ================================
 
 import SideBar from "../components/SideBar";
+import "./Shop.css";
+// Shop.jsx - The shop page component that displays mushroom products for sale. 
+
 
 export default function Shop() {
     return (
         <>
             <main className="main-content">
-                <header>
+                <header id="main-header">
                     <h1>Mushroom Shop</h1>
                     <p>Premium spores and growing supplies</p>
                 </header>

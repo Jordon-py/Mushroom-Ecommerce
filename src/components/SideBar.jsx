@@ -29,7 +29,7 @@
 // ================================
 
 // SideBar.jsx
-import { FaHome, FaStore, FaLeaf, FaInfoCircle } from "react-icons/fa"; 
+import { FaHome, FaInfoCircle, FaStore, FaLeaf } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import "./SideBar.css";

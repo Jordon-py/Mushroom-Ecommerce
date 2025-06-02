@@ -1,0 +1,88 @@
+/* .mycology-content → Main mycology education section */
+#main-header {
+  background: lch(48.49% 49.78 284.22 / 0.165);
+  border-radius: 1.2rem;
+  box-shadow: 0 6px 22px lch(57.61% 44.67 266.3 / 0.23);
+  margin: 2.5rem auto;
+  padding: 2.5rem 2rem;
+  max-width: 780px;
+  text-align: center;
+  animation: fadeInUp 1.9s cubic-bezier(.77,0,.18,1) .3s both;
+  font-family: 'Audiowide', 'Segoe UI', Arial, sans-serif;
+}
+
+.mycology-content {
+  background: lch(60.95% 52.65 285.08 / 0.324);
+  border-radius: 1.2rem;
+  box-shadow: 0 6px 22px lch(57.61% 44.67 266.3 / 0.23);
+  margin: 2.5rem auto;
+  padding: 2.5rem 2rem;
+  max-width: 780px;
+  animation: fadeInUp 1.5s cubic-bezier(.77,0,.18,1) 0.5s both;
+  font-family: 'Audiowide', 'Segoe UI', Arial, sans-serif;
+  position: relative;
+}
+
+.mycology-content article h2 {
+  font-size: 1.6rem;
+  color: lch(32% 63 275);
+  margin-bottom: 1.2rem;
+  letter-spacing: 1.2px;
+  text-shadow: 0 2px 18px lch(0% 0 0 / 0.12);
+  background: linear-gradient(90deg, #74e2ff 5%, #b686f9 50%, #e6ff84 95%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.mycology-content article h3 {
+  font-size: 1.15rem;
+  margin-top: 2rem;
+  margin-bottom: 0.6rem;
+  color: lch(38% 54 260);
+  font-weight: 600;
+  letter-spacing: 0.7px;
+}
+
+.mycology-content ul {
+  list-style: disc inside;
+  padding-left: 1.4rem;
+  margin: 0 0 1.2rem 0;
+  color: lch(30% 38 260);
+  font-size: 1.03rem;
+  letter-spacing: 0.1px;
+}
+
+.mycology-content li {
+  margin-bottom: 0.48rem;
+  padding-left: 0.18rem;
+}
+
+.mycology-content p,
+.mycology-content em {
+  color: lch(39% 24 258);
+  font-size: 1.06rem;
+  line-height: 1.7;
+  margin-bottom: 1.1rem;
+}
+
+.mycology-content em {
+  color: lch(48% 60 290);
+  font-style: italic;
+  font-weight: 500;
+}
+
+@media (max-width: 800px) {
+  .mycology-content {
+    padding: 1.2rem 0.5rem;
+  }
+}
+
+/* Accessible, modern entrance animation */
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(60px) scale(0.97);}
+    to   { opacity: 1; transform: translateY(0) scale(1);}
+  }
+}
+

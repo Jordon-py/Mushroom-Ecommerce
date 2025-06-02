@@ -30,24 +30,32 @@
 //   • Semantic nav and ul structure
 //   • Improved focus indicators
 // ================================
-
+// ================================
+// Futuristic Footer Component (v2)
+// ================================
 import React from "react";
 import { Link } from "react-router-dom";
+import { FaHome, FaStore, FaInfoCircle, FaLeaf, FaMoon, FaSun } from "react-icons/fa";
+import { motion } from "framer-motion";
 import "./Footer.css";
 
-function Footer() {
+export default function Footer({ lightMode, onToggleTheme }) {
+  // Accessible dark mode icon toggle
+  const themeIcon = lightMode
+    ? <FaMoon aria-label="Switch to dark mode" />
+    : <FaSun aria-label="Switch to light mode" />;
+
   return (
-    <footer className="footer" role="contentinfo">
-      <div className="footer-content">
-        <nav className="footer-nav" aria-label="Footer navigation">
+    <footer className="footer-glass" id="footer" role="contentinfo">
+        <nav className="footer-nav-glass" id="footer-nav" aria-label="Footer navigation">
           <ul>
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/shop">Shop</Link></li>
-            <li><Link to="/about">About</Link></li>
-            <li><Link to="/mycology">Mycology 101</Link></li>
+            <li><Link to="/" aria-label="Home"><FaHome /> <span>Home</span></Link></li>
+            <li><Link to="/shop" aria-label="Shop"><FaStore /> <span>Shop</span></Link></li>
+            <li><Link to="/about" aria-label="About"><FaInfoCircle /> <span>About</span></Link></li>
+            <li><Link to="/mycology" aria-label="Mycology 101"><FaLeaf /> <span>Mycology</span></Link></li>
           </ul>
         </nav>
-        <div className="footer-contact">
+        <div className="footer-contact-glass" id="footer-contact">
           <p>
             Contact: <a href="mailto:support@shroomstore.com">support@shroomstore.com</a>
           </p>
@@ -55,9 +63,6 @@ function Footer() {
             &copy; {new Date().getFullYear()} ShroomStore. All rights reserved.
           </p>
         </div>
-      </div>
     </footer>
   );
 }
-
-export default Footer;
