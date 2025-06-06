@@ -30,9 +30,17 @@
 // ================================
 
 
+import { useEffect, useContext } from "react";
 import WelcomeBanner from "../components/WelcomeBanner";
+import AnalyticsContext from "../AnalyticsContext.jsx";
 
 export default function Home({ lightMode, appSectionClass }) {
+    const { recordPageView } = useContext(AnalyticsContext);
+
+    useEffect(() => {
+        recordPageView('Home');
+    }, [recordPageView]);
+
     return (
         <>
             <main className="main-content">

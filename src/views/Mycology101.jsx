@@ -10,12 +10,20 @@
 //   • Accessibility considerations for educational material
 // ================================
 
+import { useEffect, useContext } from "react";
 import SideBar from "../components/SideBar";
 import "./Mycology101.css";
+import AnalyticsContext from "../AnalyticsContext.jsx";
 
 
 
 export default function Mycology101() {
+    const { recordPageView } = useContext(AnalyticsContext);
+
+    useEffect(() => {
+        recordPageView('Mycology101');
+    }, [recordPageView]);
+
     return (
         <>
             <main className="main-content">

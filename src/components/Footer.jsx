@@ -35,15 +35,10 @@
 // ================================
 import React from "react";
 import { Link } from "react-router-dom";
-import { FaHome, FaStore, FaInfoCircle, FaLeaf, FaMoon, FaSun } from "react-icons/fa";
-import { motion } from "framer-motion";
+import { FaHome, FaStore, FaInfoCircle, FaLeaf } from "react-icons/fa";
 import "./Footer.css";
 
-export default function Footer({ lightMode, onToggleTheme }) {
-  // Accessible dark mode icon toggle
-  const themeIcon = lightMode
-    ? <FaMoon aria-label="Switch to dark mode" />
-    : <FaSun aria-label="Switch to light mode" />;
+export default function Footer() {
 
   return (
     <footer className="footer-glass" id="footer" role="contentinfo">
