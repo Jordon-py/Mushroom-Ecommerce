@@ -1,0 +1,27 @@
+.admin-dashboard {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  font-family: 'Audiowide', 'Segoe UI', Arial, sans-serif;
+}
+
+.admin-dashboard header h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(180deg, #ffe97a 20%, #7b61ff 70%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.charts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.chart-container {
+  width: 400px;
+  max-width: 90%;
+}
