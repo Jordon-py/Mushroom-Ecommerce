@@ -1,0 +1,17 @@
+.dashboard-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.admin-section {
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background: var(--color-background, #f0f0f0);
+  border-radius: 8px;
+}
+
+.customer-form label {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
