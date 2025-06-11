@@ -1,0 +1,267 @@
+/* ================================
+   ProductCard.css - Product Card Styling
+   ================================
+   Modern, responsive design for mushroom spore products
+   Features: Glass morphism, hover effects, accessibility
+   ================================ */
+
+.product-card {
+    background: lch(98% 10 245 / 0.3);
+    backdrop-filter: blur(10px);
+    border: 1px solid lch(60% 42 265 / 0.15);
+    border-radius: 1.2rem;
+    padding: 1.5rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 20px lch(60% 42 265 / 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px lch(60% 42 265 / 0.2);
+    border-color: lch(60% 42 265 / 0.3);
+}
+
+.product-card.out-of-stock {
+    opacity: 0.6;
+    filter: grayscale(0.5);
+}
+
+/* Product Image */
+.product-image-container {
+    position: relative;
+    margin-bottom: 1rem;
+    border-radius: 0.8rem;
+    overflow: hidden;
+}
+
+.product-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 0.8rem;
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-image {
+    transform: scale(1.05);
+}
+
+/* Badges */
+.featured-badge,
+.stock-badge {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background: lch(45% 60 285 / 0.9);
+    color: white;
+    padding: 0.3rem 0.6rem;
+    border-radius: 1rem;
+    font-size: 0.8rem;
+    font-weight: bold;
+    z-index: 2;
+}
+
+.stock-badge {
+    background: lch(50% 60 0 / 0.9);
+}
+
+/* Product Info */
+.product-info {
+    text-align: center;
+}
+
+.product-name {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: lch(25% 50 285);
+    margin-bottom: 0.5rem;
+    font-family: 'Audiowide', sans-serif;
+    letter-spacing: 0.5px;
+}
+
+.product-description {
+    font-size: 0.9rem;
+    color: lch(45% 20 285);
+    margin-bottom: 0.75rem;
+    line-height: 1.4;
+    font-family: 'Courier New', monospace;
+}
+
+.product-strain {
+    font-size: 0.85rem;
+    color: lch(55% 30 285);
+    margin-bottom: 0.5rem;
+    font-style: italic;
+}
+
+.product-rating {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+    font-size: 0.9rem;
+}
+
+.rating-count {
+    color: lch(55% 20 285);
+    font-size: 0.8rem;
+}
+
+/* Pricing */
+.product-price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding: 0.5rem 0;
+    border-top: 1px solid lch(60% 42 265 / 0.2);
+    border-bottom: 1px solid lch(60% 42 265 / 0.2);
+}
+
+.price {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: lch(35% 60 285);
+    font-family: 'Audiowide', sans-serif;
+}
+
+.stock-info {
+    font-size: 0.8rem;
+    color: lch(55% 30 285);
+}
+
+/* Actions */
+.product-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.quantity-selector {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: lch(95% 5 245 / 0.5);
+    border-radius: 0.6rem;
+    padding: 0.3rem;
+}
+
+.quantity-selector button {
+    width: 32px;
+    height: 32px;
+    border: none;
+    background: lch(75% 30 285);
+    color: white;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    transition: all 0.2s ease;
+}
+
+.quantity-selector button:hover:not(:disabled) {
+    background: lch(65% 40 285);
+    transform: scale(1.1);
+}
+
+.quantity-selector button:disabled {
+    background: lch(85% 10 285);
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.quantity-selector input {
+    width: 60px;
+    text-align: center;
+    border: 1px solid lch(75% 20 285);
+    border-radius: 0.4rem;
+    padding: 0.3rem;
+    font-size: 0.9rem;
+    background: white;
+}
+
+.add-to-cart-btn {
+    background: linear-gradient(135deg, lch(60% 60 285), lch(50% 70 270));
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.8rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    box-shadow: 0 4px 15px lch(60% 60 285 / 0.3);
+}
+
+.add-to-cart-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px lch(60% 60 285 / 0.4);
+    background: linear-gradient(135deg, lch(50% 70 285), lch(40% 80 270));
+}
+
+.add-to-cart-btn:disabled {
+    background: lch(75% 10 285);
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Dark mode styles */
+[data-theme="dark"] .product-card {
+    background: lch(20% 15 285 / 0.4);
+    border-color: lch(40% 30 285 / 0.3);
+}
+
+[data-theme="dark"] .product-name {
+    color: lch(80% 40 285);
+}
+
+[data-theme="dark"] .product-description {
+    color: lch(70% 25 285);
+}
+
+[data-theme="dark"] .price {
+    color: lch(70% 50 285);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .product-card {
+        padding: 1rem;
+    }
+
+    .product-image {
+        height: 160px;
+    }
+
+    .product-name {
+        font-size: 1.2rem;
+    }
+
+    .product-price {
+        flex-direction: column;
+        gap: 0.3rem;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .product-actions {
+        gap: 0.5rem;
+    }
+
+    .quantity-selector {
+        padding: 0.2rem;
+    }
+
+    .add-to-cart-btn {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+    }
+}
