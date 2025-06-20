@@ -30,19 +30,21 @@
   text-shadow:  0px 8px 15px  lch(100% 0.01 296.81 / 0.483);
 }
 
-.shop-content {
+.product-grid {
   background: lch(96% 12 245 / 0.23);
   border-radius: 1.2rem;
   box-shadow: 0 4px 20px lch(60% 42 265 / 0.11);
   margin: 2.5rem auto;
-  padding: 2.7rem 2rem 2rem 2rem;
+  padding: 2rem;
   max-width: 880px;
-  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
   animation: fadeInUp 1.4s cubic-bezier(.77,0,.18,1) 1.3s both;
   font-family: 'Audiowide', 'Segoe UI', Arial, sans-serif;
 }
 
-.shop-content h2 {
+.product-card h2 {
   font-size: 2.9rem;
   color: lch(36% 58 265);
   margin-bottom: 1.4rem;
@@ -54,42 +56,48 @@
   text-shadow: 0 2px 12px lch(0% 0 0 / 0.146);
 }
 
-.shop-content p {
+.product-card .description {
   font-family: 'Courier New', Courier, monospace;
   color: lch(6.92% 13.64 262.64);
   font-size: 1.5rem;
-  margin-bottom: 4rem;
+  margin-bottom: 1rem;
   font-weight: 550;
   line-height: 1.6;
 }
 
-.shop-content ul {
-  list-style: square inside;
-  color: lch(7.34% 13.77 261.36);
-  margin: 0 auto 1.4rem auto;
-  padding: 0;
-  font-size: 1.5rem;
-  max-width: 400px;
+.product-card .price {
+  font-size: 1.4rem;
+  color: lch(40% 40 265);
+  font-weight: bold;
 }
 
-.shop-content li {
-  margin-bottom: 1.5rem;
-}
-
-.coming-soon {
-  border-left: 5px solid #7b61ff;
-  padding-left: 1.5rem;
-  background: lch(62.51% 38.46 246.4 / 0.247);
+.product-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
   border-radius: 0.6rem;
-  box-shadow: 0 1px 7px lch(35% 14 250 / 0.09);
+  margin-bottom: 0.5rem;
+  box-shadow: 0 4px 12px lch(35% 14 250 / 0.2);
 }
+
+.product-card {
+  text-align: center;
+  padding: 1rem;
+  background: lch(98% 10 245 / 0.3);
+  border-radius: 0.8rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+}
+
+
 
 @media (max-width: 800px) {
-  .shop-content {
-    padding: 1.3rem 0.5rem;
-  }
-  .coming-soon {
-    padding-left: 0.7rem;
+  .product-grid {
+    padding: 1rem;
   }
 }
 
