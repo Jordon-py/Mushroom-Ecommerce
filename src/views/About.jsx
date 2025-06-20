@@ -28,10 +28,17 @@
 //   • Semantic HTML for better SEO
 // ================================
 
-import React from "react";
+import React, { useEffect, useContext } from "react";
+import AnalyticsContext from "../AnalyticsContext.jsx";
 import "./About.css";
 
 export default function About() {
+  const { recordPageView } = useContext(AnalyticsContext);
+
+  useEffect(() => {
+    recordPageView('About');
+  }, [recordPageView]);
+
   return (
     <>
       <main className="main-content">

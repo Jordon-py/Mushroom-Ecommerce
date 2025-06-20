@@ -40,6 +40,7 @@ import Home from "./views/Home";
 import Shop from "./views/Shop";
 import Mycology101 from "./views/Mycology101";
 import About from "./views/About";
+import AdminDashboard from "./views/AdminDashboard";
 
 export default function App() {
   // -------------------------------
@@ -91,6 +92,7 @@ export default function App() {
           <Route path="/shop" element={<Shop lightMode={lightMode} />} />
           <Route path="/mycology" element={<Mycology101 lightMode={lightMode} />} />
           <Route path="/about" element={<About lightMode={lightMode} />} />
+          <Route path="/admin" element={<AdminDashboard />} />
         </Routes>
       </div>
 
