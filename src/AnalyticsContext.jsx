@@ -2,6 +2,33 @@ import React, { createContext, useState, useEffect } from 'react';
 
 const AnalyticsContext = createContext();
 
+/*
+  NEXT STEP #3 (Reliable analytics pipeline):
+  Add an explicit recordEvent API and schema versioning so future event types
+  (cart_add, checkout_start, purchase) are backward compatible.
+
+  Why here?
+  - This provider owns analytics writes and persistence strategy.
+
+  Educational implementation example:
+  const STORAGE_KEY = 'analytics:v2';
+
+  const recordEvent = (type, name, metadata = {}) => {
+    const timestamp = Date.now();
+    setAnalytics((prev) => ({
+      ...prev,
+      events: [...prev.events, { type, name, timestamp, metadata }],
+    }));
+  };
+
+  // Migrate legacy payloads on boot.
+  function migrateAnalytics(raw) {
+    if (!raw?.version) {
+      return { version: 2, ...raw, events: (raw.events || []).map((e) => ({ ...e, metadata: {} })) };
+    }
+    return raw;
+  }
+*/
 const defaultAnalytics = {
   pages: {
     Home: 0,
@@ -11,7 +38,7 @@ const defaultAnalytics = {
     Admin: 0,
   },
   products: {},
-  events: [], // individual view events with timestamps
+  events: [],
 };
 
 export function AnalyticsProvider({ children }) {
