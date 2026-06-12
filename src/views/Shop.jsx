@@ -1,138 +1,16 @@
 import React, { useContext, useEffect } from 'react';
 import AnalyticsContext from '../AnalyticsContext.jsx';
+import { products } from '../data/products.js';
 import './Shop.css';
 
-/*
-  NEXT STEP #1 (Data architecture):
-  Move the hard-coded product list to a data layer (JSON file or API endpoint).
+const currencyFormatter = new Intl.NumberFormat('en-US', {
+  style: 'currency',
+  currency: 'USD',
+});
 
-  Why here?
-  - Shop.jsx should focus on rendering and interaction, not product source-of-truth.
-
-  Educational implementation example:
-  // src/api/products.js
-  export async function fetchProducts() {
-    const response = await fetch('/api/products');
-    if (!response.ok) throw new Error('Failed to load products');
-    return response.json();
-  }
-
-  // In Shop.jsx
-  const [products, setProducts] = useState([]);
-  useEffect(() => {
-    fetchProducts().then(setProducts).catch(setError);
-  }, []);
-
-  NEXT STEP #2 (Commerce capability):
-  Add a cart flow with explicit purchase intent tracking.
-
-  Why here?
-  - Product cards are where users first express intent (view -> add to cart).
-
-  Educational implementation example:
-  <button
-    type="button"
-    onClick={(event) => {
-      event.stopPropagation();
-      addToCart(p);
-      recordEvent('cart_add', p.name);
-    }}
-  >
-    Add to Cart
-  </button>
-*/
-const products = [
-  {
-    name: 'A+ Albinos',
-    image: '/assets/A+%20ALBINOS.jpg',
-    description: 'Rare white variant prized by collectors.',
-    price: '$25',
-  },
-  {
-    name: 'Blue Mini',
-    image: '/assets/BLUE%20MINI.jpg',
-    description: 'Compact variety with vivid blue hues.',
-    price: '$18',
-  },
-  {
-    name: 'Hill Billy',
-    image: '/assets/HILL%20BILLY.jpg',
-    description: 'Hardy strain known for vigorous growth.',
-    price: '$19',
-  },
-  {
-    name: 'Jedi Mind F',
-    image: '/assets/JEDI%20MIND%20FUCKS.webp',
-    description: 'Popular among experienced cultivators.',
-    price: '$24',
-  },
-  {
-    name: 'Mazatapec',
-    image: '/assets/MAZATAPEC.jpg',
-    description: 'Classic Psilocybe cubensis strain from Mexico.',
-    price: '$20',
-  },
-  {
-    name: 'Natal Super Strength',
-    image: '/assets/NATAL%20SUPER%20STRENGTH.jpg',
-    description: 'Robust spores ideal for advanced growers.',
-    price: '$26',
-  },
-  {
-    name: 'P.E.6',
-    image: '/assets/P%20E6.png',
-    description: 'Penis Envy hybrid with unique genetics.',
-    price: '$23',
-  },
-  {
-    name: 'Penis Envy',
-    image: '/assets/PENIS%20ENVY.png',
-    description: 'Legendary potency and strong colonization.',
-    price: '$28',
-  },
-  {
-    name: 'PF Classic',
-    image: '/assets/PF%20CLASSIC.jpg',
-    description: 'Beginner-friendly spores for PF Tek enthusiasts.',
-    price: '$15',
-  },
-  {
-    name: 'Treasure Coast',
-    image: '/assets/TREASURE%20COAST.webp',
-    description: 'Florida strain famous for large flushes.',
-    price: '$21',
-  },
-  {
-    name: 'Burma',
-    image: '/assets/burma%20mushrooms.jpg',
-    description: 'Exotic variety from Southeast Asia.',
-    price: '$20',
-  },
-  {
-    name: 'Z-Strain',
-    image: '/assets/z%20strain.jpg',
-    description: 'Popular strain known for consistent growth.',
-    price: '$22',
-  },
-  {
-    name: 'P.E.6 Webp',
-    image: '/assets/P%20E6.webp',
-    description: 'Alternate image format of P.E.6 spores.',
-    price: '$23',
-  },
-  {
-    name: 'Shrooms 1',
-    image: '/assets/Shrooms_1.PNG',
-    description: 'Colorful promotional artwork.',
-    price: '$18',
-  },
-  {
-    name: 'Shrooms 2',
-    image: '/assets/Shrooms_2.PNG',
-    description: 'More spores with an artistic twist.',
-    price: '$18',
-  },
-];
+function formatCurrency(priceCents) {
+  return currencyFormatter.format(priceCents / 100);
+}
 
 export default function Shop() {
   const { recordPageView, recordProductView } = useContext(AnalyticsContext);
@@ -148,12 +26,16 @@ export default function Shop() {
         <p>Premium spores and growing supplies</p>
       </header>
       <section className="product-grid">
-        {products.map((p) => (
-          <div key={p.name} className="product-card" onClick={() => recordProductView(p.name)}>
-            <img src={p.image} alt={p.name} />
-            <h2>{p.name}</h2>
-            <p className="description">{p.description}</p>
-            <p className="price">{p.price}</p>
+        {products.map((product) => (
+          <div
+            key={product.id}
+            className="product-card"
+            onClick={() => recordProductView(product.name)}
+          >
+            <img src={product.image} alt={product.imageAlt} />
+            <h2>{product.name}</h2>
+            <p className="description">{product.description}</p>
+            <p className="price">{formatCurrency(product.priceCents)}</p>
           </div>
         ))}
       </section>
