@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect } from 'react';
+import React, { createContext, useCallback, useEffect, useMemo, useState } from 'react';
 
 const AnalyticsContext = createContext();
 
@@ -55,7 +55,7 @@ export function AnalyticsProvider({ children }) {
     localStorage.setItem('analytics', JSON.stringify(analytics));
   }, [analytics]);
 
-  const recordPageView = (page) => {
+  const recordPageView = useCallback((page) => {
     const timestamp = Date.now();
     setAnalytics((prev) => ({
       ...prev,
@@ -65,9 +65,9 @@ export function AnalyticsProvider({ children }) {
       },
       events: [...prev.events, { type: 'page', name: page, timestamp }],
     }));
-  };
+  }, []);
 
-  const recordProductView = (product) => {
+  const recordProductView = useCallback((product) => {
     const timestamp = Date.now();
     setAnalytics((prev) => ({
       ...prev,
@@ -77,31 +77,34 @@ export function AnalyticsProvider({ children }) {
       },
       events: [...prev.events, { type: 'product', name: product, timestamp }],
     }));
-  };
+  }, []);
 
-  const getDailySummary = () => {
+  const getDailySummary = useCallback((events = []) => {
     const summary = {};
-    analytics.events.forEach((evt) => {
+    events.forEach((evt) => {
       const day = new Date(evt.timestamp).toLocaleDateString();
       summary[day] = (summary[day] || 0) + 1;
     });
     return summary;
-  };
+  }, []);
 
-  const resetAnalytics = () => {
+  const resetAnalytics = useCallback(() => {
     setAnalytics(defaultAnalytics);
-  };
+  }, []);
+
+  const value = useMemo(
+    () => ({
+      analytics,
+      recordPageView,
+      recordProductView,
+      resetAnalytics,
+      getDailySummary,
+    }),
+    [analytics, recordPageView, recordProductView, resetAnalytics, getDailySummary],
+  );
 
   return (
-    <AnalyticsContext.Provider
-      value={{
-        analytics,
-        recordPageView,
-        recordProductView,
-        resetAnalytics,
-        getDailySummary,
-      }}
-    >
+    <AnalyticsContext.Provider value={value}>
       {children}
     </AnalyticsContext.Provider>
   );

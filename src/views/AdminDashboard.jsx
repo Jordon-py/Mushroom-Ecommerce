@@ -32,7 +32,9 @@ export default function AdminDashboard() {
 
   useEffect(() => {
     recordPageView('Admin');
+  }, [recordPageView]);
 
+  useEffect(() => {
     if (!pageChartRef.current || !productChartRef.current) {
       return undefined;
     }
@@ -40,7 +42,7 @@ export default function AdminDashboard() {
     const pageCtx = pageChartRef.current.getContext('2d');
     const productCtx = productChartRef.current.getContext('2d');
 
-    const dailySummary = getDailySummary();
+    const dailySummary = getDailySummary(analytics.events);
 
     const pageChart = new Chart(pageCtx, {
       type: 'line',
@@ -82,7 +84,7 @@ export default function AdminDashboard() {
       pageChart.destroy();
       productChart.destroy();
     };
-  }, [analytics, recordPageView, getDailySummary]);
+  }, [analytics.events, analytics.products, getDailySummary]);
 
   return (
     <main className="admin-dashboard">
