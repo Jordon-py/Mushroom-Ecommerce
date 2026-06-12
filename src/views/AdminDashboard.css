@@ -1,7 +1,23 @@
+.admin-dashboard {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  font-family: 'Audiowide', 'Segoe UI', Arial, sans-serif;
+}
 
-.dashboard-header {
+.dashboard-header,
+.admin-dashboard header {
   text-align: center;
   margin-bottom: 2rem;
+}
+
+.admin-dashboard header h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(180deg, #ffe97a 20%, #7b61ff 70%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .admin-section {
@@ -15,21 +31,6 @@
   display: flex;
   gap: 0.5rem;
   align-items: center;
-=======
-.admin-dashboard {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-  font-family: 'Audiowide', 'Segoe UI', Arial, sans-serif;
-}
-
-.admin-dashboard header h1 {
-  font-size: 3rem;
-  margin-bottom: 0.5rem;
-  background: linear-gradient(180deg, #ffe97a 20%, #7b61ff 70%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 .charts {
@@ -54,6 +55,7 @@
   text-align: left;
   margin-top: 2rem;
 }
+
 .events ul {
   list-style: none;
   padding: 0;

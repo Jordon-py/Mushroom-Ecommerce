@@ -2,6 +2,45 @@ import React, { useContext, useEffect } from 'react';
 import AnalyticsContext from '../AnalyticsContext.jsx';
 import './Shop.css';
 
+/*
+  NEXT STEP #1 (Data architecture):
+  Move the hard-coded product list to a data layer (JSON file or API endpoint).
+
+  Why here?
+  - Shop.jsx should focus on rendering and interaction, not product source-of-truth.
+
+  Educational implementation example:
+  // src/api/products.js
+  export async function fetchProducts() {
+    const response = await fetch('/api/products');
+    if (!response.ok) throw new Error('Failed to load products');
+    return response.json();
+  }
+
+  // In Shop.jsx
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    fetchProducts().then(setProducts).catch(setError);
+  }, []);
+
+  NEXT STEP #2 (Commerce capability):
+  Add a cart flow with explicit purchase intent tracking.
+
+  Why here?
+  - Product cards are where users first express intent (view -> add to cart).
+
+  Educational implementation example:
+  <button
+    type="button"
+    onClick={(event) => {
+      event.stopPropagation();
+      addToCart(p);
+      recordEvent('cart_add', p.name);
+    }}
+  >
+    Add to Cart
+  </button>
+*/
 const products = [
   {
     name: 'A+ Albinos',
@@ -110,11 +149,7 @@ export default function Shop() {
       </header>
       <section className="product-grid">
         {products.map((p) => (
-          <div
-            key={p.name}
-            className="product-card"
-            onClick={() => recordProductView(p.name)}
-          >
+          <div key={p.name} className="product-card" onClick={() => recordProductView(p.name)}>
             <img src={p.image} alt={p.name} />
             <h2>{p.name}</h2>
             <p className="description">{p.description}</p>

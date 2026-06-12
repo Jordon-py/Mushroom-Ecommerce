@@ -1,68 +1,42 @@
-
-import React from "react";
-import "./AdminDashboard.css";
-
-function CustomerInfo() {
-  return (
-    <section className="admin-section" id="customer-info">
-      <h2>Customer Info</h2>
-      <form className="customer-form">
-        <label>
-          Email:
-          <input type="email" name="email" />
-        </label>
-        <button type="submit">Add</button>
-      </form>
-    </section>
-  );
-}
-
-function SalesData() {
-  return (
-    <section className="admin-section" id="sales-data">
-      <h2>Sales Data</h2>
-      <p>Coming soon: graphs and metrics.</p>
-    </section>
-  );
-}
-
-function InventoryStatus() {
-  return (
-    <section className="admin-section" id="inventory-status">
-      <h2>Inventory Status</h2>
-      <p>Current inventory overview will appear here.</p>
-    </section>
-  );
-}
-
-export default function AdminDashboard() {
-  return (
-    <main className="main-content admin-dashboard">
-      <header className="dashboard-header">
-        <h1>Admin Dashboard</h1>
-        <p>Manage store insights and data</p>
-      </header>
-      <CustomerInfo />
-      <SalesData />
-      <InventoryStatus />
-=======
 import React, { useContext, useEffect, useRef } from 'react';
+import { Chart } from 'chart.js/auto';
 import AnalyticsContext from '../AnalyticsContext.jsx';
 import './AdminDashboard.css';
-import { Chart } from 'chart.js/auto';
 
+/*
+  NEXT STEP #4 (Analytics maturity roadmap):
+  Add conversion and revenue metrics to make this dashboard useful for business decisions.
+
+  Why here?
+  - This file already visualizes analytics and is the natural place to expose KPIs.
+
+  Educational implementation example:
+  1) Extend the context event schema with checkout events (see AnalyticsContext.jsx comment).
+  2) Derive funnel metrics here via memoization.
+
+  Example:
+  const funnel = useMemo(() => {
+    const viewed = analytics.events.filter((e) => e.type === 'product').length;
+    const added = analytics.events.filter((e) => e.type === 'cart_add').length;
+    const purchased = analytics.events.filter((e) => e.type === 'purchase').length;
+    return {
+      viewToCart: viewed ? ((added / viewed) * 100).toFixed(1) : '0.0',
+      cartToPurchase: added ? ((purchased / added) * 100).toFixed(1) : '0.0',
+    };
+  }, [analytics.events]);
+*/
 export default function AdminDashboard() {
-  const {
-    analytics,
-    recordPageView,
-    resetAnalytics,
-    getDailySummary,
-  } = useContext(AnalyticsContext);
+  const { analytics, recordPageView, resetAnalytics, getDailySummary } = useContext(AnalyticsContext);
   const pageChartRef = useRef(null);
   const productChartRef = useRef(null);
 
   useEffect(() => {
     recordPageView('Admin');
+
+    if (!pageChartRef.current || !productChartRef.current) {
+      return undefined;
+    }
+
     const pageCtx = pageChartRef.current.getContext('2d');
     const productCtx = productChartRef.current.getContext('2d');
 
@@ -72,12 +46,14 @@ export default function AdminDashboard() {
       type: 'line',
       data: {
         labels: Object.keys(dailySummary),
-        datasets: [{
-          label: 'Views per Day',
-          data: Object.values(dailySummary),
-          fill: false,
-          borderColor: 'rgba(123,97,255,0.8)',
-        }],
+        datasets: [
+          {
+            label: 'Views per Day',
+            data: Object.values(dailySummary),
+            fill: false,
+            borderColor: 'rgba(123,97,255,0.8)',
+          },
+        ],
       },
       options: {
         responsive: true,
@@ -89,11 +65,13 @@ export default function AdminDashboard() {
       type: 'bar',
       data: {
         labels: Object.keys(analytics.products),
-        datasets: [{
-          label: 'Product Views',
-          data: Object.values(analytics.products),
-          backgroundColor: 'rgba(255,105,97,0.6)',
-        }],
+        datasets: [
+          {
+            label: 'Product Views',
+            data: Object.values(analytics.products),
+            backgroundColor: 'rgba(255,105,97,0.6)',
+          },
+        ],
       },
       options: {
         responsive: true,
@@ -111,7 +89,9 @@ export default function AdminDashboard() {
       <header>
         <h1>Admin Dashboard</h1>
         <p>Analytics Overview</p>
-        <button onClick={resetAnalytics} className="reset-btn">Reset</button>
+        <button onClick={resetAnalytics} className="reset-btn">
+          Reset
+        </button>
       </header>
       <section className="charts">
         <div className="chart-container">
@@ -124,11 +104,14 @@ export default function AdminDashboard() {
       <section className="events">
         <h2>Recent Events</h2>
         <ul>
-          {analytics.events.slice(-5).reverse().map((e, idx) => (
-            <li key={idx}>
-              {new Date(e.timestamp).toLocaleString()} - {e.type}: {e.name}
-            </li>
-          ))}
+          {analytics.events
+            .slice(-5)
+            .reverse()
+            .map((eventItem, idx) => (
+              <li key={`${eventItem.timestamp}-${idx}`}>
+                {new Date(eventItem.timestamp).toLocaleString()} - {eventItem.type}: {eventItem.name}
+              </li>
+            ))}
         </ul>
       </section>
     </main>
