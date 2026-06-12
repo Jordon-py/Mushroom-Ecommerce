@@ -108,3 +108,23 @@
   }
 }
 /* Responsive Design */
+
+.add-to-cart-btn {
+  border: 0;
+  border-radius: 999px;
+  cursor: pointer;
+  font-family: 'Audiowide', 'Segoe UI', Arial, sans-serif;
+  font-size: 1rem;
+  margin-top: 0.75rem;
+  padding: 0.75rem 1rem;
+  background: linear-gradient(135deg, #7b61ff, #ffe97a);
+  color: lch(10% 10 265);
+  box-shadow: 0 4px 12px lch(45% 60 285 / 0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.add-to-cart-btn:hover,
+.add-to-cart-btn:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px lch(45% 60 285 / 0.28);
+}

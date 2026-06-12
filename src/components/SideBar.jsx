@@ -29,7 +29,7 @@
 // ================================
 
 // SideBar.jsx
-import { FaHome, FaInfoCircle, FaStore, FaLeaf, FaChartBar } from "react-icons/fa";
+import { FaHome, FaInfoCircle, FaStore, FaLeaf, FaChartBar, FaShoppingCart } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import "./SideBar.css";
@@ -58,6 +58,11 @@ export default function SideBar() {
           <li>
             <Link className="trippy-link" to="/shop">
               <FaStore className="sidebar-icon" /> Shop
+            </Link>
+          </li>
+          <li>
+            <Link className="trippy-link" to="/cart">
+              <FaShoppingCart className="sidebar-icon" /> Cart
             </Link>
           </li>
           <li>

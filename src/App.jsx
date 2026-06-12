@@ -6,6 +6,7 @@ import Footer from './components/Footer';
 import SideBar from './components/SideBar';
 import Home from './views/Home';
 import Shop from './views/Shop';
+import Cart from './views/Cart';
 import Mycology101 from './views/Mycology101';
 import About from './views/About';
 import AdminDashboard from './views/AdminDashboard';
@@ -64,6 +65,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home lightMode={lightMode} appSectionClass={appSectionClass} />} />
           <Route path="/shop" element={<Shop lightMode={lightMode} />} />
+          <Route path="/cart" element={<Cart />} />
           <Route path="/mycology" element={<Mycology101 lightMode={lightMode} />} />
           <Route path="/about" element={<About lightMode={lightMode} />} />
           <Route path="/admin" element={<AdminDashboard />} />
