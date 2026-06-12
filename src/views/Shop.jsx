@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import AnalyticsContext from '../AnalyticsContext.jsx';
+import { useCart } from '../CartContext.jsx';
 import './Shop.css';
 
 /*
@@ -43,90 +44,105 @@ import './Shop.css';
 */
 const products = [
   {
+    id: 'a-plus-albinos',
     name: 'A+ Albinos',
     image: '/assets/A+%20ALBINOS.jpg',
     description: 'Rare white variant prized by collectors.',
     price: '$25',
   },
   {
+    id: 'blue-mini',
     name: 'Blue Mini',
     image: '/assets/BLUE%20MINI.jpg',
     description: 'Compact variety with vivid blue hues.',
     price: '$18',
   },
   {
+    id: 'hill-billy',
     name: 'Hill Billy',
     image: '/assets/HILL%20BILLY.jpg',
     description: 'Hardy strain known for vigorous growth.',
     price: '$19',
   },
   {
+    id: 'jedi-mind-f',
     name: 'Jedi Mind F',
     image: '/assets/JEDI%20MIND%20FUCKS.webp',
     description: 'Popular among experienced cultivators.',
     price: '$24',
   },
   {
+    id: 'mazatapec',
     name: 'Mazatapec',
     image: '/assets/MAZATAPEC.jpg',
     description: 'Classic Psilocybe cubensis strain from Mexico.',
     price: '$20',
   },
   {
+    id: 'natal-super-strength',
     name: 'Natal Super Strength',
     image: '/assets/NATAL%20SUPER%20STRENGTH.jpg',
     description: 'Robust spores ideal for advanced growers.',
     price: '$26',
   },
   {
+    id: 'pe6',
     name: 'P.E.6',
     image: '/assets/P%20E6.png',
     description: 'Penis Envy hybrid with unique genetics.',
     price: '$23',
   },
   {
+    id: 'penis-envy',
     name: 'Penis Envy',
     image: '/assets/PENIS%20ENVY.png',
     description: 'Legendary potency and strong colonization.',
     price: '$28',
   },
   {
+    id: 'pf-classic',
     name: 'PF Classic',
     image: '/assets/PF%20CLASSIC.jpg',
     description: 'Beginner-friendly spores for PF Tek enthusiasts.',
     price: '$15',
   },
   {
+    id: 'treasure-coast',
     name: 'Treasure Coast',
     image: '/assets/TREASURE%20COAST.webp',
     description: 'Florida strain famous for large flushes.',
     price: '$21',
   },
   {
+    id: 'burma',
     name: 'Burma',
     image: '/assets/burma%20mushrooms.jpg',
     description: 'Exotic variety from Southeast Asia.',
     price: '$20',
   },
   {
+    id: 'z-strain',
     name: 'Z-Strain',
     image: '/assets/z%20strain.jpg',
     description: 'Popular strain known for consistent growth.',
     price: '$22',
   },
   {
+    id: 'pe6-webp',
     name: 'P.E.6 Webp',
     image: '/assets/P%20E6.webp',
     description: 'Alternate image format of P.E.6 spores.',
     price: '$23',
   },
   {
+    id: 'shrooms-1',
     name: 'Shrooms 1',
     image: '/assets/Shrooms_1.PNG',
     description: 'Colorful promotional artwork.',
     price: '$18',
   },
   {
+    id: 'shrooms-2',
     name: 'Shrooms 2',
     image: '/assets/Shrooms_2.PNG',
     description: 'More spores with an artistic twist.',
@@ -136,6 +152,7 @@ const products = [
 
 export default function Shop() {
   const { recordPageView, recordProductView } = useContext(AnalyticsContext);
+  const { addItem } = useCart();
 
   useEffect(() => {
     recordPageView('Shop');
@@ -154,6 +171,16 @@ export default function Shop() {
             <h2>{p.name}</h2>
             <p className="description">{p.description}</p>
             <p className="price">{p.price}</p>
+            <button
+              type="button"
+              className="add-to-cart-btn"
+              onClick={(event) => {
+                event.stopPropagation();
+                addItem(p);
+              }}
+            >
+              Add to Cart
+            </button>
           </div>
         ))}
       </section>

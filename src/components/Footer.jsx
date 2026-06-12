@@ -35,7 +35,7 @@
 // ================================
 import React from "react";
 import { Link } from "react-router-dom";
-import { FaHome, FaStore, FaInfoCircle, FaLeaf } from "react-icons/fa";
+import { FaHome, FaStore, FaInfoCircle, FaLeaf, FaShoppingCart } from "react-icons/fa";
 import "./Footer.css";
 
 export default function Footer() {
@@ -46,6 +46,7 @@ export default function Footer() {
           <ul>
             <li><Link to="/" aria-label="Home"><FaHome /> <span>Home</span></Link></li>
             <li><Link to="/shop" aria-label="Shop"><FaStore /> <span>Shop</span></Link></li>
+            <li><Link to="/cart" aria-label="Cart"><FaShoppingCart /> <span>Cart</span></Link></li>
             <li><Link to="/about" aria-label="About"><FaInfoCircle /> <span>About</span></Link></li>
             <li><Link to="/mycology" aria-label="Mycology 101"><FaLeaf /> <span>Mycology</span></Link></li>
           </ul>

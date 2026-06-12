@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect } from 'react';
+import React, { createContext, useCallback, useMemo, useState, useEffect } from 'react';
 
 const AnalyticsContext = createContext();
 
@@ -55,8 +55,18 @@ export function AnalyticsProvider({ children }) {
     localStorage.setItem('analytics', JSON.stringify(analytics));
   }, [analytics]);
 
-  const recordPageView = (page) => {
+  const recordEvent = useCallback((type, name, metadata = {}) => {
     const timestamp = Date.now();
+
+    setAnalytics((prev) => ({
+      ...prev,
+      events: [...prev.events, { type, name, timestamp, metadata }],
+    }));
+  }, []);
+
+  const recordPageView = useCallback((page) => {
+    const timestamp = Date.now();
+
     setAnalytics((prev) => ({
       ...prev,
       pages: {
@@ -65,10 +75,11 @@ export function AnalyticsProvider({ children }) {
       },
       events: [...prev.events, { type: 'page', name: page, timestamp }],
     }));
-  };
+  }, []);
 
-  const recordProductView = (product) => {
+  const recordProductView = useCallback((product) => {
     const timestamp = Date.now();
+
     setAnalytics((prev) => ({
       ...prev,
       products: {
@@ -77,34 +88,34 @@ export function AnalyticsProvider({ children }) {
       },
       events: [...prev.events, { type: 'product', name: product, timestamp }],
     }));
-  };
+  }, []);
 
-  const getDailySummary = () => {
+  const getDailySummary = useCallback(() => {
     const summary = {};
     analytics.events.forEach((evt) => {
       const day = new Date(evt.timestamp).toLocaleDateString();
       summary[day] = (summary[day] || 0) + 1;
     });
     return summary;
-  };
+  }, [analytics.events]);
 
-  const resetAnalytics = () => {
+  const resetAnalytics = useCallback(() => {
     setAnalytics(defaultAnalytics);
-  };
+  }, []);
 
-  return (
-    <AnalyticsContext.Provider
-      value={{
-        analytics,
-        recordPageView,
-        recordProductView,
-        resetAnalytics,
-        getDailySummary,
-      }}
-    >
-      {children}
-    </AnalyticsContext.Provider>
+  const value = useMemo(
+    () => ({
+      analytics,
+      recordEvent,
+      recordPageView,
+      recordProductView,
+      resetAnalytics,
+      getDailySummary,
+    }),
+    [analytics, getDailySummary, recordEvent, recordPageView, recordProductView, resetAnalytics],
   );
+
+  return <AnalyticsContext.Provider value={value}>{children}</AnalyticsContext.Provider>;
 }
 
 export default AnalyticsContext;
